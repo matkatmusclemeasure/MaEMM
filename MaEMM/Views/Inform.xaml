@@ -31,6 +31,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="486,290,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" RenderTransformOrigin="0.548,2.117" Foreground="Black"/>
         <TextBox x:Name="upperArmTB" HorizontalAlignment="Left" Margin="560,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="lowerArmTB" HorizontalAlignment="Left" Margin="560,280,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        
+        <Image x:Name="backB" HorizontalAlignment="Left" Height="28" Margin="693,14,0,0" VerticalAlignment="Top" Width="66" Source="/Assets/ToBackKnap.PNG" Tapped="backB_Tapped"/>
+        <Button x:Name="nextB" Content="Next" Margin="515,350,0,0" VerticalAlignment="Top" Height="31" Width="173" Background="{ThemeResource SystemColorInactiveCaptionBrush}" Foreground="#FF040000" Click="nextB_Click" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
     </Grid>
 </Page>
