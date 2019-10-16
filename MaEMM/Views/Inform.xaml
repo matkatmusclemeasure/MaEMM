@@ -9,9 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="125" Margin="475,207,0,0" Stroke="{ThemeResource AppBarItemBackgroundThemeBrush}" VerticalAlignment="Top" Width="252" Fill="{ThemeResource SystemColorInactiveCaptionBrush}" CanBeScrollAnchor="True" RenderTransformOrigin="0.565,0.4"/>
+        <Rectangle HorizontalAlignment="Left" Height="158" Margin="473,220,0,0" Stroke="{ThemeResource AppBarItemBackgroundThemeBrush}" VerticalAlignment="Top" Width="252" Fill="{ThemeResource SystemColorInactiveCaptionBrush}" CanBeScrollAnchor="True" RenderTransformOrigin="0.565,0.4"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Enter information" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontWeight="Bold" FontSize="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="475,64,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="473,77,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,160,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,213,0,0" Text="Personal ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,308,0,0" Text="Gender:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
@@ -24,14 +24,19 @@
         <TextBox x:Name="pIDTB" HorizontalAlignment="Left" Margin="143,206,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,260,0,0" Text="Test ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana" RenderTransformOrigin="0.506,0.388"/>
         <TextBox x:Name="testIDTB" HorizontalAlignment="Left" Margin="143,253,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
-        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="475,86,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="252"/>
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="473,99,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="252"/>
         <DatePicker Margin="143,349,0,0" VerticalAlignment="Top" Width="301"/>
-        <TextBlock HorizontalAlignment="Left" Margin="485,214,0,0" Text="Previous settings:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
-        <TextBlock HorizontalAlignment="Left" Margin="486,250,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="486,290,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" RenderTransformOrigin="0.548,2.117" Foreground="Black"/>
-        <TextBox x:Name="upperArmTB" HorizontalAlignment="Left" Margin="560,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="lowerArmTB" HorizontalAlignment="Left" Margin="560,280,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="483,227,0,0" Text="Previous settings:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="484,257,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="484,294,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" RenderTransformOrigin="0.548,2.117" Foreground="Black"/>
+        <TextBox x:Name="upperArmTB" HorizontalAlignment="Left" Margin="558,247,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="lowerArmTB" HorizontalAlignment="Left" Margin="558,284,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Image x:Name="backB" HorizontalAlignment="Left" Height="28" Margin="693,14,0,0" VerticalAlignment="Top" Width="66" Source="/Assets/ToBackKnap.PNG" Tapped="backB_Tapped"/>
-        <Button x:Name="nextB" Content="Next" Margin="515,350,0,0" VerticalAlignment="Top" Height="31" Width="173" Background="{ThemeResource SystemColorInactiveCaptionBrush}" Foreground="#FF040000" Click="nextB_Click" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+        <Button x:Name="nextB" Content="Next" Margin="473,391,0,0" VerticalAlignment="Top" Height="31" Width="254" Background="{ThemeResource SystemColorInactiveCaptionBrush}" Foreground="#FF040000" Click="nextB_Click" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+        <TextBlock HorizontalAlignment="Left" Margin="484,330,0,0" Text="Arm length:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" RenderTransformOrigin="0.548,2.117" Foreground="Black"/>
+        <TextBox x:Name="lowerArmTB_Copy" HorizontalAlignment="Left" Margin="558,321,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="628,257,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="628,294,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="628,330,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
     </Grid>
 </Page>
