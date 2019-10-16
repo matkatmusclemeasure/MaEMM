@@ -26,5 +26,10 @@ namespace MaEMM
         {
             this.InitializeComponent();
         }
+
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.MeasurePage));
+        }
     }
 }

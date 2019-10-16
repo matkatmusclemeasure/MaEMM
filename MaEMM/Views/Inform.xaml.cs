@@ -26,5 +26,15 @@ namespace MaEMM
         {
             this.InitializeComponent();
         }
+
+        private void nextB_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.MeasurePage));
+        }
+
+        private void backB_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Views.MainPage));
+        }
     }
 }

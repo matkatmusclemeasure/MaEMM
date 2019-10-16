@@ -27,8 +27,8 @@
         </TextBox>
         <RadioButton x:Name="maleRB" Content="Male" Margin="141,229,0,0" VerticalAlignment="Top" Height="32" Width="64" FontFamily="Verdana"/>
         <RadioButton x:Name="femaleRB" Content="Female" Margin="236,229,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="477,74,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
-        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="477,96,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="154" Width="252">
+        <TextBlock HorizontalAlignment="Left" Margin="477,114,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="477,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="140" Width="252">
             <TextBox.Background>
                 <AcrylicBrush TintColor="White"/>
             </TextBox.Background>
@@ -39,15 +39,15 @@
                 <AcrylicBrush TintColor="White"/>
             </DatePicker.Background>
         </DatePicker>
-        <TextBlock HorizontalAlignment="Left" Margin="12,319,0,0" Text="Further comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="148" Foreground="#FF080808"/>
-        <TextBox x:Name="fcommentsTB" HorizontalAlignment="Left" Margin="12,342,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="233"/>
+        <TextBlock HorizontalAlignment="Left" Margin="12,319,0,0" Text="Further comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="148" Foreground="#FF070606"/>
+        <TextBox x:Name="fcommentsTB" HorizontalAlignment="Left" Margin="12,342,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="233"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,46,0,0" Text="Previous information" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="22" FontWeight="Normal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="287,319,0,0" Text="Enter adjustable angle values:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="220" Foreground="#FF080808"/>
-        <TextBox HorizontalAlignment="Left" Margin="394,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
-        <TextBox HorizontalAlignment="Left" Margin="394,378,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
-        <TextBlock HorizontalAlignment="Left" Margin="289,348,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Verdana" FontSize="14" Foreground="#FF040404"/>
-        <TextBlock HorizontalAlignment="Left" Margin="289,385,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontSize="14" FontFamily="Verdana" Foreground="#FF080808"/>
-        <Button x:Name="saveB" Content="Save" Margin="556,378,0,0" VerticalAlignment="Top" Height="31" Width="173" Background="{ThemeResource SystemColorInactiveCaptionBrush}" Foreground="#FF040000" FontWeight="Bold" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="264,319,0,0" Text="Enter adjustable angle values:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="220" Foreground="#FF070606"/>
+        <TextBox HorizontalAlignment="Left" Margin="372,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <TextBox HorizontalAlignment="Left" Margin="372,378,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <TextBlock HorizontalAlignment="Left" Margin="267,348,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Verdana" FontSize="14" Foreground="#FF070606"/>
+        <TextBlock HorizontalAlignment="Left" Margin="267,385,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontSize="14" FontFamily="Verdana" Foreground="#FF070606"/>
+        <Button x:Name="saveB" Content="Save" Margin="582,379,0,0" VerticalAlignment="Top" Height="31" Width="173" Background="{ThemeResource SystemColorInactiveCaptionBrush}" Foreground="#FF040000" FontWeight="Bold" FontFamily="Verdana"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,204,0,0" Text="Test ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana"/>
         <TextBox x:Name="TestIDTB" HorizontalAlignment="Left" Margin="141,197,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="296">
             <TextBox.Background>
@@ -60,6 +60,15 @@
                 <AcrylicBrush FallbackColor ="White"/>
             </TextBox.Background>
         </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="477,79,0,0" Text="Armlength:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="92"/>
+        <TextBox x:Name="armLengthTB" HorizontalAlignment="Left" Margin="567,72,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="126">
+            <TextBox.Background>
+                <AcrylicBrush FallbackColor ="White"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="702,79,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="39" Height="19"/>
+        <TextBlock HorizontalAlignment="Left" Margin="490,348,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF070606"/>
+        <TextBlock HorizontalAlignment="Left" Margin="489,385,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF070606"/>
 
     </Grid>
 </Page>
