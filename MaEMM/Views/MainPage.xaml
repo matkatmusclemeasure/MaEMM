@@ -6,13 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
-    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.
-            -->
-        </Grid>
-    </Grid>
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF829FAF" Offset="0.04"/>
+            <GradientStop Color="#FFFBFCFD" Offset="0.64"/>
+        </LinearGradientBrush>
+    </Page.Background>
+    <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="394" Source="/Assets/MaEMMLogo.png" Margin="0,76,0,0"/>
 </Page>
