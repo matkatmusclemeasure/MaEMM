@@ -112,7 +112,16 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
+    <Compile Include="Views\Save.xaml.cs">
+      <DependentUpon>Save.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calibrate.xaml.cs">
+      <DependentUpon>Calibrate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Views\Inform.xaml.cs">
+      <DependentUpon>Inform.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
     <Compile Include="Services\NavigationService.cs" />
@@ -133,6 +142,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\Save.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calibrate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inform.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
