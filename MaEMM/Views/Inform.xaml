@@ -9,6 +9,28 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Rectangle HorizontalAlignment="Left" Height="125" Margin="475,207,0,0" Stroke="{ThemeResource AppBarItemBackgroundThemeBrush}" VerticalAlignment="Top" Width="252" Fill="{ThemeResource SystemColorInactiveCaptionBrush}" CanBeScrollAnchor="True" RenderTransformOrigin="0.565,0.4"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Enter information" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontWeight="Bold" FontSize="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="475,64,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,160,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,213,0,0" Text="Personal ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,308,0,0" Text="Gender:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,356,0,0" Text="Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
+        <RadioButton x:Name="maleRB" Content="Male" Margin="143,300,0,0" Height="32" Width="64" FontFamily="Verdana" VerticalAlignment="Top"/>
+        <RadioButton x:Name="femaleRB" Content="Female" Margin="238,300,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,111,0,0" Text="Test title:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
+        <TextBox x:Name="testTitleTB" HorizontalAlignment="Left" Margin="143,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBox x:Name="nameTB" HorizontalAlignment="Left" Margin="143,153,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBox x:Name="pIDTB" HorizontalAlignment="Left" Margin="143,206,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,260,0,0" Text="Test ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana" RenderTransformOrigin="0.506,0.388"/>
+        <TextBox x:Name="testIDTB" HorizontalAlignment="Left" Margin="143,253,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="475,86,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="252"/>
+        <DatePicker Margin="143,349,0,0" VerticalAlignment="Top" Width="301"/>
+        <TextBlock HorizontalAlignment="Left" Margin="485,214,0,0" Text="Previous settings:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="486,250,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="486,290,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" RenderTransformOrigin="0.548,2.117" Foreground="Black"/>
+        <TextBox x:Name="upperArmTB" HorizontalAlignment="Left" Margin="560,240,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="lowerArmTB" HorizontalAlignment="Left" Margin="560,280,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
     </Grid>
 </Page>

@@ -12,5 +12,17 @@
             <GradientStop Color="#FFFBFCFD" Offset="0.64"/>
         </LinearGradientBrush>
     </Page.Background>
-    <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="394" Source="/Assets/MaEMMLogo.png" Margin="0,76,0,0"/>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF52728A"/>
+                <GradientStop Color="White" Offset="0.14"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Center" Height="111" Margin="0,65,0,0" VerticalAlignment="Top" Width="432" Source="/Assets/MaEMMLogo.png"/>
+        <Button x:Name="startMeasurementB" Content="Go to measurement" Margin="0,245,0,0" VerticalAlignment="Top" Height="42" Width="432" HorizontalAlignment="Center" FontFamily="Verdana" FontSize="24" FontWeight="Bold" Foreground="#FFFEFAFA" Background="{ThemeResource SystemColorInactiveCaptionColor}"/>
+        <Button x:Name="calibrateB" Content="Calibrate" Margin="0,351,0,0" VerticalAlignment="Top" Height="42" Width="432" HorizontalAlignment="Center" FontFamily="Verdana" FontSize="18" FontWeight="Bold" Foreground="#FFFEFAFA" Background="{ThemeResource SystemColorInactiveCaptionColor}"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,324,0,0" Text="For technical personnel only" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Foreground="{ThemeResource SystemControlErrorTextForegroundBrush}"/>
+
+    </Grid>
 </Page>
