@@ -8,7 +8,46 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="#FFFAF6F6">
+        <Rectangle HorizontalAlignment="Center" Height="255" Margin="0,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="745" Fill="{ThemeResource SystemColorInactiveCaptionBrush}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Save" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="26" FontWeight="Bold" Foreground="#FF050505"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="703,10,0,0" VerticalAlignment="Top" Width="66" Source="/Assets/ToBackKnap.PNG" RenderTransformOrigin="2.45,-1.403" Tapped="Image_Tapped"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,103,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,156,0,0" Text="Identification:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,210,0,0" Text="Gender:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
+        <TextBox x:Name="nameTB" HorizontalAlignment="Left" Margin="141,96,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="296">
+            <TextBox.Background>
+                <AcrylicBrush FallbackColor ="White"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox x:Name="idTB" HorizontalAlignment="Left" Margin="141,149,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="296">
+            <TextBox.Background>
+                <AcrylicBrush TintColor="White"/>
+            </TextBox.Background>
+        </TextBox>
+        <RadioButton x:Name="maleRB" Content="Male" Margin="141,203,0,0" VerticalAlignment="Top" Height="32" Width="64" FontFamily="Verdana"/>
+        <RadioButton x:Name="femaleRB" Content="Female" Margin="236,203,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="477,74,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="477,96,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="154" Width="252">
+            <TextBox.Background>
+                <AcrylicBrush TintColor="White"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="30,252,0,0" Text="Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
+        <DatePicker x:Name="datePicker" Margin="139,245,0,0" VerticalAlignment="Top">
+            <DatePicker.Background>
+                <AcrylicBrush TintColor="White"/>
+            </DatePicker.Background>
+        </DatePicker>
+        <TextBlock HorizontalAlignment="Left" Margin="12,319,0,0" Text="Further comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="148" Foreground="#FF080808"/>
+        <TextBox x:Name="fcommentsTB" HorizontalAlignment="Left" Margin="12,342,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="233"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,60,0,0" Text="Previous information" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="22" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="287,319,0,0" Text="Enter adjustable angle values:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="220" Foreground="#FF080808"/>
+        <TextBox HorizontalAlignment="Left" Margin="394,341,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <TextBox HorizontalAlignment="Left" Margin="394,378,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="108"/>
+        <TextBlock HorizontalAlignment="Left" Margin="289,348,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontFamily="Verdana" FontSize="14" Foreground="#FF040404"/>
+        <TextBlock HorizontalAlignment="Left" Margin="289,385,0,0" Text="Lower arm:" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontSize="14" FontFamily="Verdana" Foreground="#FF080808"/>
+        <Button x:Name="saveB" Content="Save" Margin="556,378,0,0" VerticalAlignment="Top" Height="31" Width="173" Background="{ThemeResource SystemColorInactiveCaptionBrush}" Foreground="#FF040000"/>
 
     </Grid>
 </Page>

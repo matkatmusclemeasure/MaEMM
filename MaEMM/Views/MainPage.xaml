@@ -12,5 +12,4 @@
             <GradientStop Color="#FFFBFCFD" Offset="0.64"/>
         </LinearGradientBrush>
     </Page.Background>
-    <Image HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="394" Source="/Assets/MaEMMLogo.png" Margin="0,76,0,0"/>
 </Page>

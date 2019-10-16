@@ -49,5 +49,15 @@ namespace MaEMM.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private void backB_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Inform));
+        }
+
+        private void saveMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Save));
+        }
     }
 }

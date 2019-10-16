@@ -6,12 +6,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
     xmlns:tc="using:Telerik.UI.Xaml.Controls.Chart"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Background="#FFFBFAFA">
 
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <tc:RadCartesianChart>
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}" Margin="0,0,-18,0">
+            <tc:RadCartesianChart Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539">
                 <tc:RadCartesianChart.HorizontalAxis>
                     <tc:CategoricalAxis />
                 </tc:RadCartesianChart.HorizontalAxis>
@@ -27,6 +27,20 @@
                     </tc:BarSeries.ValueBinding>
                 </tc:BarSeries>
             </tc:RadCartesianChart>
+            <Button x:Name="startMeasurementB" Content="Start measurement" Margin="544,112,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana"/>
+            <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="544,295,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana"/>
+            <Button x:Name="saveMeasurementB" Content="Save measurement" Margin="544,337,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="saveMeasurementB_Click"/>
+            <Button x:Name="resetMeasurementB" Content="Reset measurement" Margin="544,379,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana"/>
+            <TextBlock HorizontalAlignment="Left" Margin="-10,10,0,0" Text="Measure" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Verdana" Foreground="#FF040404"/>
+            <TextBlock HorizontalAlignment="Left" Margin="544,47,0,0" Text ="Enter armlength" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="173" Foreground="#FF040404"/>
+            <TextBox HorizontalAlignment="Left" Margin="544,71,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+            <TextBox HorizontalAlignment="Left" Margin="544,243,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+            <TextBox HorizontalAlignment="Left" Margin="544,181,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+            <TextBlock HorizontalAlignment="Left" Text="Muscle force" Margin="544,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404"/>
+            <TextBlock HorizontalAlignment="Left" Text="Rate of force development" Margin="544,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404"/>
+            <TextBlock HorizontalAlignment="Left" Text ="Nm" Margin="681,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="26" Foreground="#FF040404"/>
+            <TextBlock HorizontalAlignment="Left" Text ="Nm/s" Margin="668,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="38" Foreground="#FF040404"/>
+            <Image x:Name="backB" HorizontalAlignment="Left" Height="29" Margin="667,10,0,0" VerticalAlignment="Top" Width="61" Source="/Assets/ToBackKnap.PNG" Tapped="backB_Tapped"/>
         </Grid>
     </Grid>
 </Page>
