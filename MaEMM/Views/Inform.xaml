@@ -22,7 +22,7 @@
         <TextBox x:Name="pIDTB" HorizontalAlignment="Left" Margin="143,206,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,260,0,0" Text="Test ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana" RenderTransformOrigin="0.506,0.388"/>
         <TextBox x:Name="testIDTB" HorizontalAlignment="Left" Margin="143,253,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
-        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="473,99,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="252"/>
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="473,99,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="252" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <DatePicker Margin="143,349,0,0" VerticalAlignment="Top" Width="301"/>
         <TextBlock HorizontalAlignment="Left" Margin="483,227,0,0" Text="Previous settings:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
         <TextBlock HorizontalAlignment="Left" Margin="484,257,0,0" Text="Upper arm:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
