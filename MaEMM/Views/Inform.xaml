@@ -16,8 +16,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="34,213,0,0" Text="Personal ID:" TextWrapping="Wrap" VerticalAlignment="Top" AccessKey="" FontSize="14" FontFamily="Verdana"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,308,0,0" Text="Gender:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,356,0,0" Text="Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
-        <RadioButton x:Name="maleRB" Content="Male" Margin="143,300,0,0" Height="32" Width="64" FontFamily="Verdana" VerticalAlignment="Top"/>
-        <RadioButton x:Name="femaleRB" Content="Female" Margin="238,300,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="34,111,0,0" Text="Test title:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
         <TextBox x:Name="testTitleTB" HorizontalAlignment="Left" Margin="143,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
         <TextBox x:Name="nameTB" HorizontalAlignment="Left" Margin="143,153,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
@@ -38,5 +36,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="628,257,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="628,294,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="628,330,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
+        <ComboBox x:Name="genderCB" Margin="143,301,0,0" Width="168">
+            <x:String>Female</x:String>
+            <x:String>Male</x:String>
+        </ComboBox>
     </Grid>
 </Page>

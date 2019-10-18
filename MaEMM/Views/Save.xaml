@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="#FFFAF6F6">
-        <Rectangle HorizontalAlignment="Center" Height="255" Margin="0,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="745" Fill="{ThemeResource SystemColorInactiveCaptionBrush}"/>
+        <Rectangle HorizontalAlignment="Center" Height="268" Margin="0,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="745" Fill="{ThemeResource SystemColorInactiveCaptionBrush}"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Save" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="26" FontWeight="Bold" Foreground="#FF050505"/>
         <Image HorizontalAlignment="Left" Height="28" Margin="703,10,0,0" VerticalAlignment="Top" Width="66" Source="/Assets/ToBackKnap.PNG" RenderTransformOrigin="2.45,-1.403" Tapped="Image_Tapped"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,125,0,0" Text="Name:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
@@ -25,16 +25,14 @@
                 <AcrylicBrush TintColor="White"/>
             </TextBox.Background>
         </TextBox>
-        <RadioButton x:Name="maleRB" Content="Male" Margin="141,229,0,0" VerticalAlignment="Top" Height="32" Width="64" FontFamily="Verdana"/>
-        <RadioButton x:Name="femaleRB" Content="Female" Margin="236,229,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="477,114,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana"/>
-        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="477,0,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="140" Width="252">
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="477,137,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="116" Width="246">
             <TextBox.Background>
                 <AcrylicBrush TintColor="White"/>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="32,269,0,0" Text="Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
-        <DatePicker x:Name="datePicker" Margin="139,261,0,0" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Left" Margin="32,278,0,0" Text="Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
+        <DatePicker x:Name="datePicker" Margin="141,275,0,0" VerticalAlignment="Top">
             <DatePicker.Background>
                 <AcrylicBrush TintColor="White"/>
             </DatePicker.Background>
@@ -69,6 +67,12 @@
         <TextBlock HorizontalAlignment="Left" Margin="702,79,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="39" Height="19"/>
         <TextBlock HorizontalAlignment="Left" Margin="490,348,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF070606"/>
         <TextBlock HorizontalAlignment="Left" Margin="489,385,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF070606"/>
-
+        <ComboBox Margin="141,236,0,0" Width="296">
+            <ComboBox.Background>
+                <AcrylicBrush TintColor="White"/>
+            </ComboBox.Background>
+            <x:String>Female</x:String>
+            <x:String>Male</x:String>
+        </ComboBox>
     </Grid>
 </Page>
