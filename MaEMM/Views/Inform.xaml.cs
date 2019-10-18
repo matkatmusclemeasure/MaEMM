@@ -29,7 +29,9 @@ namespace MaEMM
 
         private void nextB_Click(object sender, RoutedEventArgs e)
         {
+            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, )
             this.Frame.Navigate(typeof(Views.MeasurePage));
+            
         }
 
         private void backB_Tapped(object sender, TappedRoutedEventArgs e)

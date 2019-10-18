@@ -112,6 +112,7 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
+    <Compile Include="InformationDTO.cs" />
     <Compile Include="Views\Save.xaml.cs">
       <DependentUpon>Save.xaml</DependentUpon>
     </Compile>
