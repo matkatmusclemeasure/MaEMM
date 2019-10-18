@@ -131,9 +131,6 @@
     <Compile Include="Views\MeasurePage.xaml.cs">
       <DependentUpon>MeasurePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ShellPage.xaml.cs">
-      <DependentUpon>ShellPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -179,10 +176,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MeasurePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ShellPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
