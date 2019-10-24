@@ -22,9 +22,25 @@ namespace MaEMM
     /// </summary>
     public sealed partial class Save : Page
     {
+        private InformationDTO informationDTO; 
+
         public Save()
         {
             this.InitializeComponent();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            informationDTO = (InformationDTO)e.Parameter;
+
+            TestTitleTB.Text = informationDTO.testTitle;
+            nameTB.Text = informationDTO.patientName;
+            PersonalIDTB.Text = informationDTO.personalID;
+            TestIDTB.Text = informationDTO.testID;
+            genderCB.Text = informationDTO.patientGender;
+            dateTimeTB.Text = informationDTO.dateOfMeasurement; 
         }
 
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)

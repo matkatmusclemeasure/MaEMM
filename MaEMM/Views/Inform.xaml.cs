@@ -29,8 +29,8 @@ namespace MaEMM
 
         private void nextB_Click(object sender, RoutedEventArgs e)
         {
-            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, )
-            this.Frame.Navigate(typeof(Views.MeasurePage));
+            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, genderCB.Text, Convert.ToString(dateTimeDT));
+            this.Frame.Navigate(typeof(Views.MeasurePage), informationDTO);
             
         }
 
