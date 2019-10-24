@@ -14,6 +14,7 @@ namespace MaEMM.Views
     public sealed partial class MeasurePage : Page, INotifyPropertyChanged
     {
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
+        private InformationDTO informationDTO; 
 
         // TODO WTS: Change the chart as appropriate to your app.
         // For help see http://docs.telerik.com/windows-universal/controls/radchart/getting-started
@@ -25,6 +26,9 @@ namespace MaEMM.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            informationDTO = (InformationDTO)e.Parameter;
+
             Source.Clear();
 
             // TODO WTS: Replace this with your actual data
@@ -57,7 +61,7 @@ namespace MaEMM.Views
 
         private void saveMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Save));
+            this.Frame.Navigate(typeof(Save), informationDTO);
         }
     }
 }

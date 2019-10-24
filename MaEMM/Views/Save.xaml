@@ -32,11 +32,6 @@
             </TextBox.Background>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="32,278,0,0" Text="Date:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="Verdana"/>
-        <DatePicker x:Name="datePicker" Margin="141,275,0,0" VerticalAlignment="Top">
-            <DatePicker.Background>
-                <AcrylicBrush TintColor="White"/>
-            </DatePicker.Background>
-        </DatePicker>
         <TextBlock HorizontalAlignment="Left" Margin="12,319,0,0" Text="Further comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="38" Width="148" Foreground="#FF070606"/>
         <TextBox x:Name="fcommentsTB" HorizontalAlignment="Left" Margin="12,342,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="233"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,46,0,0" Text="Previous information" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="22" FontWeight="Normal"/>
@@ -67,12 +62,17 @@
         <TextBlock HorizontalAlignment="Left" Margin="702,79,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="39" Height="19"/>
         <TextBlock HorizontalAlignment="Left" Margin="490,348,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF070606"/>
         <TextBlock HorizontalAlignment="Left" Margin="489,385,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF070606"/>
-        <ComboBox Margin="141,236,0,0" Width="296">
+        <ComboBox x:Name="genderCB" Margin="141,236,0,0" Width="296">
             <ComboBox.Background>
                 <AcrylicBrush TintColor="White"/>
             </ComboBox.Background>
             <x:String>Female</x:String>
             <x:String>Male</x:String>
         </ComboBox>
+        <TextBox x:Name="dateTimeTB" HorizontalAlignment="Left" Margin="141,274,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="296">
+            <TextBox.Background>
+                <AcrylicBrush TintColor="White"/>
+            </TextBox.Background>
+        </TextBox>
     </Grid>
 </Page>
