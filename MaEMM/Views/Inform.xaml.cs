@@ -29,7 +29,7 @@ namespace MaEMM
 
         private void nextB_Click(object sender, RoutedEventArgs e)
         {
-            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, )
+            //InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text);
             this.Frame.Navigate(typeof(Views.MeasurePage));
             
         }
