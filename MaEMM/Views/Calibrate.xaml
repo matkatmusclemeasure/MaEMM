@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="White">
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Calibrate" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="26" FontWeight="Bold" Foreground="#FF050505"/>
         <Image HorizontalAlignment="Left" Height="28" Margin="703,10,0,0" VerticalAlignment="Top" Width="66" Source="/Assets/ToBackKnap.PNG" RenderTransformOrigin="2.45,-1.403" Tapped="Image_Tapped"/>
 
