@@ -120,7 +120,18 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Classes\ArrangeData.cs" />
+    <Compile Include="Classes\Calibrate.cs" />
+    <Compile Include="Classes\DataCalculator.cs" />
+    <Compile Include="Classes\DataPresenter.cs" />
+    <Compile Include="Classes\DataProcessor.cs" />
+    <Compile Include="Interfaces\IArrangeData.cs" />
+    <Compile Include="Interfaces\ICalibrate.cs" />
+    <Compile Include="Interfaces\IDataCalculator.cs" />
+    <Compile Include="Interfaces\IDataPresenter.cs" />
+    <Compile Include="Interfaces\IDataProcessor.cs" />
+    <Compile Include="Interfaces\IPowerControl.cs" />
+    <Compile Include="Classes\PowerControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\MaeMMBusinessLogic.rd.xml" />
   </ItemGroup>
@@ -129,6 +140,7 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
