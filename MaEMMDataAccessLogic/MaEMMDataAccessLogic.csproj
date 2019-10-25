@@ -120,6 +120,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\ADConverter.cs" />
     <Compile Include="Classes\DataReciever.cs" />
     <Compile Include="Interfaces\IDataReciever.cs" />
     <Compile Include="Interfaces\ISaveData.cs" />
