@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    public class Class1
+    interface IDataPresenter
     {
     }
 }
