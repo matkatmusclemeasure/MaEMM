@@ -38,5 +38,18 @@ namespace MaEMM
         {
             this.Frame.Navigate(typeof(Views.MainPage));
         }
+
+        
+        private void strengthNiveauCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            testTitleTB.IsEnabled = true;
+            nameTB.IsEnabled = true;
+            pIDTB.IsEnabled = true;
+            testIDTB.IsEnabled = true;
+            genderCB.IsEnabled = true;
+            dateTimeDT.IsEnabled = true;
+            commentsTB.IsEnabled = true;
+            nextB.IsEnabled = true;
+        }
     }
 }

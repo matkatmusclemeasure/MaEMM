@@ -25,8 +25,8 @@
                 <AcrylicBrush TintColor="White"/>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="477,114,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Foreground="#FF040404"/>
-        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="477,137,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="116" Width="246" ScrollViewer.VerticalScrollBarVisibility="Visible" AcceptsReturn="True">
+        <TextBlock HorizontalAlignment="Left" Margin="478,163,0,0" Text="Specific comments:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Foreground="#FF040404"/>
+        <TextBox x:Name="commentsTB" HorizontalAlignment="Left" Margin="478,186,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="116" Width="246" ScrollViewer.VerticalScrollBarVisibility="Visible" AcceptsReturn="True">
             <TextBox.Background>
                 <AcrylicBrush TintColor="White"/>
             </TextBox.Background>
@@ -53,13 +53,13 @@
                 <AcrylicBrush FallbackColor ="White"/>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="477,79,0,0" Text="Armlength:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="92" Foreground="#FF040404"/>
-        <TextBox x:Name="armLengthTB" HorizontalAlignment="Left" Margin="567,72,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="126">
+        <TextBlock HorizontalAlignment="Left" Margin="478,128,0,0" Text="Armlength:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="92" Foreground="#FF040404"/>
+        <TextBox x:Name="armLengthTB" HorizontalAlignment="Left" Margin="588,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="126">
             <TextBox.Background>
                 <AcrylicBrush FallbackColor ="White"/>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="702,79,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="39" Height="19" Foreground="#FF040404"/>
+        <TextBlock HorizontalAlignment="Left" Margin="723,127,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="39" Height="19" Foreground="#FF040404"/>
         <TextBlock HorizontalAlignment="Left" Margin="490,348,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF040404"/>
         <TextBlock HorizontalAlignment="Left" Margin="489,385,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" Height="21" Width="74" Foreground="#FF040404"/>
         <ComboBox x:Name="genderCB" Margin="141,236,0,0" Width="296">
@@ -72,6 +72,12 @@
         <TextBox x:Name="dateTimeTB" HorizontalAlignment="Left" Margin="141,274,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="296">
             <TextBox.Background>
                 <AcrylicBrush TintColor="White"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="478,84,0,0" Text="Styrkeniveau:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="99" Foreground="#FF040404"/>
+        <TextBox x:Name="styrkeNiveauTB" HorizontalAlignment="Left" Margin="588,77,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="126">
+            <TextBox.Background>
+                <AcrylicBrush FallbackColor ="White"/>
             </TextBox.Background>
         </TextBox>
     </Grid>
