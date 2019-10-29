@@ -9,12 +9,14 @@ namespace MaeMMBusinessLogic
     class DataCalculator : IDataCalculator
     {
         private double armLength;
-        private IDataProcessor dataProcessor_; 
+        private IDataProcessor dataProcessor_;
+
+        public event EventHandler<SendCoordinateEvent> sendCoordinate;
 
         public DataCalculator(IDataProcessor dataProcessor)
         {
             dataProcessor_ = dataProcessor;
-            dataProcessor_.calculateDataEvent += calculateForce; 
+            dataProcessor_.sendDouble += calculateForce; 
         }
 
         public void setArmLength(double length)
