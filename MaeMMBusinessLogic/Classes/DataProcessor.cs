@@ -11,6 +11,8 @@ namespace MaeMMBusinessLogic
         //Finder vha. spænding momentet ved Strain Gauge ud fra de værdier der findes fra kalibrering 
         //Momentet sendes videre til calculator 
 
-        public event EventHandler calculateDataEvent;
+        public event EventHandler<SendDoubleEvent> sendDouble;
+
+
     }
 }
