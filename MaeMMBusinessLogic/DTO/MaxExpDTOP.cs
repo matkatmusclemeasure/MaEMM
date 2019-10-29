@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    interface IDataCalculator
+    public class MaxExpDTOP
     {
-        event EventHandler<SendCoordinateEvent> sendCoordinate; 
+        public double maxMuscle { get; set; }
+
+        public double expMuscle { get; set; }
     }
 }

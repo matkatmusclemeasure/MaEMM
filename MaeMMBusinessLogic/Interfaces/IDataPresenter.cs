@@ -8,5 +8,11 @@ namespace MaeMMBusinessLogic
 {
     interface IDataPresenter
     {
+        event EventHandler<SendCoordinateEvent> sendCoordinate; 
+
+        MaxExpDTOP showResult();
+
+        void sendCoordinates();
+
     }
 }

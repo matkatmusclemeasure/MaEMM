@@ -8,5 +8,7 @@ namespace MaEMMDataAccessLogic
 {
     class DataReciever : IDataReciever
     {
+
+
     }
 }

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    interface DataPresenter : IDataPresenter
+    public class DataPresenter : IDataPresenter
     {
+        public event EventHandler<SendCoordinateEvent> sendCoordinate;
+
+        public void sendCoordinates()
+        {
+            
+        }
+
+        public MaxExpDTOP showResult()
+        {
+            
+        }
     }
 }
