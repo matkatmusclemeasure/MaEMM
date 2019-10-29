@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using Windows.Devices.I2c; 
-
+using Windows.Devices.I2c;
+using Windows.Devices.Enumeration;
+using System.Threading.Tasks;
 
 namespace ADtest
 {
@@ -105,30 +106,43 @@ namespace ADtest
             GAIN_SIXTEEN = ADS1015_REG_CONFIG_PGA_0_256V
         }
 
+        I2cDevice device;
+
+        private async Task FindDevices()
+        {
+            var settings = new I2cConnectionSettings(0x40);
+            settings.BusSpeed = I2cBusSpeed.FastMode;
+            settings.SharingMode = I2cSharingMode.Shared;
+
+            string i2cDeviceSelector = I2cDevice.GetDeviceSelector();
+            IReadOnlyList<DeviceInformation> devices = await DeviceInformation.FindAllAsync(i2cDeviceSelector);
+            device = await I2cDevice.FromIdAsync(devices[0].Id, settings);
+        }
+
         public ADC(byte deviceAddress = ADS1015_ADDRESS, UInt16 gain = ADS1015_REG_CONFIG_PGA_2_048V)
         {
             _deviceAddress = deviceAddress;
             _gain = gain;
             _conversionDelay = ADS1015_CONVERSIONDELAY;
             _bitShift = 4;
+            FindDevices();
         }
 
-        static void writeRegister(byte i2cAddress, byte reg, UInt16 value)
+        void writeRegister(byte i2cAddress, byte reg, UInt16 value)
         {
             byte[] cmd = new byte[] { reg, (byte)(value >> 8), (byte)(value & 0xFF) };
 
-            var HTU21D_settings = new I2cConnectionSettings(0x40);
-            I2c.WriteToDevice(cmd);
+            device.Write(cmd);
         }
 
-        static UInt16 readRegister(byte i2cAddress)
+        UInt16 readRegister(byte i2cAddress)
         {
             byte[] reg = new byte[] { ADS1015_REG_POINTER_CONVERT };
 
             var HTU21D_settings = new I2cConnectionSettings(0x40);
-            I2c.WriteToDevice(reg);
+            byte[] res = new byte[2];
+            device.WriteRead(reg, res);
 
-            byte[] res = I2cDevice.ReadFromDevice(2);
             return (UInt16)((res[0] << 8) | res[1]);
         }
 
