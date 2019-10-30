@@ -8,7 +8,9 @@ namespace MaeMMBusinessLogic
 {
     interface IDataProcessor
     {
-        event EventHandler<SendDoubleEvent> sendDouble; 
+        event EventHandler<SendDoubleEvent> sendDouble;
+
+        void procesVoltage(object sender, SendDoubleEvent e);
 
     }
 }

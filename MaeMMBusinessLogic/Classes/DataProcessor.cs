@@ -13,6 +13,19 @@ namespace MaeMMBusinessLogic
 
         public event EventHandler<SendDoubleEvent> sendDouble;
 
+        public DataProcessor()
+        {
+
+        }
+        
+        public void procesVoltage(object sender, SendDoubleEvent e)
+        {
+            double torque = 0;
+
+            SendDoubleEvent doubleEvent = new SendDoubleEvent(torque);
+            sendDouble?.Invoke(this, doubleEvent);
+        }
+
 
     }
 }
