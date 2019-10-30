@@ -8,5 +8,6 @@ namespace MaeMMBusinessLogic
 {
     interface IArrangeData
     {
+        void arrangeDataForSave(InformationDTO informationDTO);
     }
 }
