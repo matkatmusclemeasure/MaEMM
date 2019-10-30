@@ -8,5 +8,7 @@ namespace MaeMMBusinessLogic
 {
     class ArrangeData : IArrangeData
     {
+
+
     }
 }
