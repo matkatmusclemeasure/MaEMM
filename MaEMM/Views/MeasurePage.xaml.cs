@@ -8,6 +8,7 @@ using MaEMM.Core.Services;
 
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using MaeMMBusinessLogic;
 
 namespace MaEMM.Views
 {

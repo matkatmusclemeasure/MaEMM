@@ -215,6 +215,10 @@
       <Project>{5FFE97F8-B06B-4EBF-9E2B-E9B65C90B5F1}</Project>
       <Name>MaEMM.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MaeMMBusinessLogic\MaEMMBusinessLogic.csproj">
+      <Project>{5d709b0e-fc66-418b-bcf9-993529c308cf}</Project>
+      <Name>MaEMMBusinessLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

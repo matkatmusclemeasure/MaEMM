@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    class InformationDTO
+    public class InformationDTO
     {
         public InformationDTO(string testTitle_, string patientName_, string personalID_, string testID_, string patientGender_, string dateOfMeasurement_)
         {
