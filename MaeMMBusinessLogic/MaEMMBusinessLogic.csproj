@@ -125,7 +125,8 @@
     <Compile Include="Classes\DataCalculator.cs" />
     <Compile Include="Classes\DataPresenter.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
-    <Compile Include="DataPCParameterDTO.cs" />
+    <Compile Include="DTO\DataPCParameterDTO.cs" />
+    <Compile Include="DTO\InformationDTO.cs" />
     <Compile Include="Interfaces\IArrangeData.cs" />
     <Compile Include="Interfaces\ICalibrate.cs" />
     <Compile Include="Interfaces\IDataCalculator.cs" />
@@ -145,7 +146,12 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MaEMMDataAccessLogic\MaEMMDataAccessLogic.csproj">
+      <Project>{55c788f2-2114-4ba8-860b-4994c9b2eaf2}</Project>
+      <Name>MaEMMDataAccessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
