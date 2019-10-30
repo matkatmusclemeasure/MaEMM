@@ -20,12 +20,15 @@ namespace MaeMMBusinessLogic
         
         public void procesVoltage(object sender, SendDoubleEvent e)
         {
-            double torque = 0;
+            double voltage = e.forceInput;
+
+            double torque = voltage; //Calculate torque
 
             SendDoubleEvent doubleEvent = new SendDoubleEvent(torque);
             sendDouble?.Invoke(this, doubleEvent);
         }
 
+        //public void setParameter()
 
     }
 }

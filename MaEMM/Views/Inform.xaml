@@ -40,11 +40,11 @@
             <x:String>Female</x:String>
             <x:String>Male</x:String>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="34,66,0,0" Text="Styrkeniveau:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="34,66,0,0" Text="Strength level:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
         <ComboBox x:Name="strengthNiveauCB" Margin="143,59,0,0" Width="168" SelectionChanged="strengthNiveauCB_SelectionChanged">
-            <x:String>Nedsat styrke</x:String>
-            <x:String>Middel styrke</x:String>
-            <x:String>Fuld styrke</x:String>
+            <x:String>Reduced strength</x:String>
+            <x:String>Medium strength</x:String>
+            <x:String>Full strength</x:String>
         </ComboBox>
     </Grid>
 </Page>
