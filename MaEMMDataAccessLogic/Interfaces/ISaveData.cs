@@ -8,5 +8,6 @@ namespace MaEMMDataAccessLogic
 {
     interface ISaveData
     {
+        void saveDatastring(string dataArranged); 
     }
 }

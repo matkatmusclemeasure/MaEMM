@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,5 +9,14 @@ namespace MaEMMDataAccessLogic
 {
     class SaveData : ISaveData
     {
+
+        public void saveDatastring(string dataArranged)
+        {
+            if(!File.Exists)
+            {
+
+            }
+           
+        }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaEMM
+namespace MaeMMBusinessLogic
 {
-    public class InformationDTO
+    class InformationDTO
     {
         public InformationDTO(string testTitle_, string patientName_, string personalID_, string testID_, string patientGender_, string dateOfMeasurement_)
         {
@@ -15,7 +15,7 @@ namespace MaEMM
             personalID = personalID_;
             testID = testID_;
             patientGender = patientGender_;
-            dateOfMeasurement = dateOfMeasurement_; 
+            dateOfMeasurement = dateOfMeasurement_;
         }
 
         public string testTitle { get; set; }
@@ -29,5 +29,24 @@ namespace MaEMM
         public string patientGender { get; set; }
 
         public string dateOfMeasurement { get; set; }
+
+        public string armLength { get; set; }
+
+        public string strengthLevel { get; set; }
+
+        public string maxMuscle { get; set; }
+
+        public string expMuscle { get; set; }
+
+        public string upperArmAngle { get; set; }
+
+        public string lowerArmAngle { get; set; }
+
+        public string specificComments { get; set; }
+
+        public string furtherComments { get; set; }
+
+
     }
 }
+
