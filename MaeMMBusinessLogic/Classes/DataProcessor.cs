@@ -12,6 +12,7 @@ namespace MaeMMBusinessLogic
         //Momentet sendes videre til calculator 
 
         public event EventHandler<SendDoubleEvent> sendDouble;
+        private string strengthLevel= "Full strength";
 
         public DataProcessor()
         {
@@ -21,14 +22,29 @@ namespace MaeMMBusinessLogic
         public void procesVoltage(object sender, SendDoubleEvent e)
         {
             double voltage = e.forceInput;
+            double torque =0;
+            switch(strengthLevel)
+            {
+                case "Reduced strength":
+                    torque = 13784 * voltage + (2 * Math.Pow(10, -8));
+                    break;
+                case "Medium strength":
+                    torque = 25332 * voltage + (2 * Math.Pow(10, -8));
+                    break;
+                case "Full strength":
+                    torque = 37491 * voltage + (2 * Math.Pow(10, -8));
+                    break;
 
-            double torque = voltage; //Calculate torque
+            }
 
             SendDoubleEvent doubleEvent = new SendDoubleEvent(torque);
             sendDouble?.Invoke(this, doubleEvent);
         }
 
-        //public void setParameter()
+        public void setParameter(DataPCParameterDTO PDTO)
+        {
+            strengthLevel = PDTO.strengthLevel;
+        }
 
     }
 }

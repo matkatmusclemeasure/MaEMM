@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    class DataPCParameterDTO
+    public class DataPCParameterDTO
     {
         public DataPCParameterDTO(double armLength_, string strengthLevel_)
         {

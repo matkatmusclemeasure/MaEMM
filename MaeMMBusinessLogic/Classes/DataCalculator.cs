@@ -10,6 +10,7 @@ namespace MaeMMBusinessLogic
     {
         private double armLength;
         private IDataProcessor dataProcessor_;
+        double timecount = 0;
 
         public event EventHandler<SendCoordinateEvent> sendCoordinate;
 
@@ -19,9 +20,9 @@ namespace MaeMMBusinessLogic
             dataProcessor_.sendDouble += calculateForce; 
         }
 
-        public void setArmLength(double length)
+        public void setParameter(DataPCParameterDTO PDTO)
         {
-            armLength = length; 
+            armLength = PDTO.armLength;
         }
 
         public void calculateForce(object sender, SendDoubleEvent e)
@@ -32,7 +33,13 @@ namespace MaeMMBusinessLogic
 
             double force = torque / (armLength - 5);
 
-            double muscleTorque = force * armLength; 
+            double muscleTorque = force * armLength;
+
+            timecount += 0.001;
+
+            SendCoordinateEvent coordinateEvent = new SendCoordinateEvent(timecount, muscleTorque);
+            sendCoordinate?.Invoke(this, coordinateEvent);
+
 
         }
     }

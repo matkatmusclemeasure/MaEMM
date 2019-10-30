@@ -12,7 +12,7 @@ namespace MaeMMBusinessLogic
 
         MaxExpDTOP showResult();
 
-        void sendCoordinates();
+        void sendCoordinates(object sender, SendCoordinateEvent e);
 
     }
 }
