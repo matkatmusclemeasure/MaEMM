@@ -8,5 +8,6 @@ namespace MaeMMBusinessLogic
 {
     interface ICalibrate
     {
+        double getVoltage(int numberOfMeasurements);
     }
 }

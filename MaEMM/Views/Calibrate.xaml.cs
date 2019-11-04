@@ -79,52 +79,10 @@ namespace MaEMM
             calibrationMade = true;
         }
 
-        private async void strengthCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void strengthCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (firstTimeChanged == true)
-            {
-                firstTimeChanged = false;
-            }
-
-            else
-            {
-                if (calibrationMade == true)
-                {
-                    armLengthTB.Text = "";
-                    weightOneTB.Text = "";
-                    weightTwoTB.Text = "";
-                    weightThreeTB.Text = "";
-                    weightFourTB.Text = "";
-                    calibrationMade = false;
-                }
-                else
-                {
-                    var messageDialog = new MessageDialog("Do you wanna continue without making the calibration for the present strength level?");
-
-                    messageDialog.Commands.Add(new UICommand("Yes", new UICommandInvokedHandler(this.CommandInvokedHandler)));
-                    messageDialog.Commands.Add(new UICommand("No", new UICommandInvokedHandler(this.CommandInvokedHandler)));
-
-                    await messageDialog.ShowAsync();
-                }
-            }
             
         }
 
-        private void CommandInvokedHandler(IUICommand command)
-        {
-            if(command.Label == "Yes")
-            {
-                armLengthTB.Text = "";
-                weightOneTB.Text = "";
-                weightTwoTB.Text = "";
-                weightThreeTB.Text = "";
-                weightFourTB.Text = "";
-                calibrationMade = false;
-            }
-            else if(command.Label=="No")
-            {
-                //Det skal gøres så den ikke skifter i combobox, måske ikke muligt
-            }
-        }
     }
 }
