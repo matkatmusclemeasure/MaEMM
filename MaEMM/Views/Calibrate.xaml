@@ -11,6 +11,26 @@
     <Grid Background="White">
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Calibrate" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="26" FontWeight="Bold" Foreground="#FF050505"/>
         <Image HorizontalAlignment="Left" Height="28" Margin="703,10,0,0" VerticalAlignment="Top" Width="66" Source="/Assets/ToBackKnap.PNG" RenderTransformOrigin="2.45,-1.403" Tapped="Image_Tapped"/>
+        <ComboBox x:Name="strengthCB" Margin="21,67,0,0" Width="168" SelectionChanged="strengthCB_SelectionChanged">
+            <x:String>Reduced strength</x:String>
+            <x:String>Medium strength</x:String>
+            <x:String>Full strength</x:String>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="21,133,0,0" Text="Enter weight 1" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="weightOneTB" HorizontalAlignment="Left" Margin="142,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBlock HorizontalAlignment="Left" Margin="314,74,0,0" Text="Enter armlength" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="armLengthTB" HorizontalAlignment="Left" Margin="435,67,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,190,0,0" Text="Enter weight 2" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="weightTwoTB" HorizontalAlignment="Left" Margin="142,183,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,252,0,0" Text="Enter weight 3" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="weightThreeTB" HorizontalAlignment="Left" Margin="142,245,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,309,0,0" Text="Enter weight 4" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
+        <TextBox x:Name="weightFourTB" HorizontalAlignment="Left" Margin="142,302,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
+        <Button x:Name ="weight1B" Content="Save" Margin="0,126,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight1B_Click"/>
+        <Button x:Name ="weight2B" Content="Save" Margin="0,184,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight2B_Click"/>
+        <Button x:Name ="weight3B" Content="Save" Margin="0,245,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight3B_Click"/>
+        <Button x:Name ="weight4B" Content="Save" Margin="0,302,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight4B_Click"/>
+        <Button x:Name ="calibrateB" Content="Calibrate" Margin="514,302,0,0" VerticalAlignment="Top" Width="154" Click="calibrateB_Click"/>
 
     </Grid>
 </Page>
