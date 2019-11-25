@@ -11,10 +11,12 @@ namespace MaeMMBusinessLogic
         private double maxMuscle = 0;
         private double expMuscle = 0;
         public event EventHandler<SendCoordinateEvent> sendCoordinate;
+        private IDataCalculator datacalculator;
 
-        public DataPresenter()
+        public DataPresenter(IDataCalculator datacalc)
         {
-
+            datacalculator = datacalc;
+            datacalculator.sendCoordinate += sendCoordinate;
         }
 
         public void sendCoordinates(object sender, SendCoordinateEvent e)

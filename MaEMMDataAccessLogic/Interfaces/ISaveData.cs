@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaEMMDataAccessLogic
 {
-    interface ISaveData
+    public interface ISaveData
     {
         void saveDatastring(string dataArranged); 
     }

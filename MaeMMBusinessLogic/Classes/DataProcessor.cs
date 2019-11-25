@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MaEMMDataAccessLogic;
+
 
 namespace MaeMMBusinessLogic
 {
@@ -11,10 +13,17 @@ namespace MaeMMBusinessLogic
         //Finder vha. spænding momentet ved Strain Gauge ud fra de værdier der findes fra kalibrering 
         //Momentet sendes videre til calculator 
 
+        private ADC adConverter;
+
         public event EventHandler<SendDoubleEvent> sendDouble;
         private string strengthLevel= "Full strength";
 
         public DataProcessor()
+        {
+
+        }
+
+        public void meassure()
         {
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    interface IArrangeData
+    public interface IArrangeData
     {
         void arrangeDataForSave(InformationDTO informationDTO);
     }

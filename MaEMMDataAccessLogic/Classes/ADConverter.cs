@@ -6,7 +6,7 @@ using Windows.Devices.I2c;
 using Windows.Devices.Enumeration;
 using System.Threading.Tasks;
 
-namespace ADtest
+namespace MaEMMDataAccessLogic
 {
     public class ADC
     {

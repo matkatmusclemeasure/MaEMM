@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaEMMDataAccessLogic
 {
-    class DataReciever : IDataReciever
+    public class DataReciever : IDataReciever
     {
 
 

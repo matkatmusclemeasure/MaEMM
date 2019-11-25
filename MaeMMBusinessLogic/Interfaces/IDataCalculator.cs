@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    interface IDataCalculator
+    public interface IDataCalculator
     {
         event EventHandler<SendCoordinateEvent> sendCoordinate; 
     }

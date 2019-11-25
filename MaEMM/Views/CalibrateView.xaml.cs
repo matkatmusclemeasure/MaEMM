@@ -85,10 +85,10 @@ namespace MaEMM
         private void calibrateB_Click(object sender, RoutedEventArgs e)
         {
             int n = momentPointsY.Count;
-            double sumXY;
-            double sumX;
-            double sumXpower2; 
-            double sumY; 
+            double sumXY=0;
+            double sumX=0;
+            double sumXpower2=0; 
+            double sumY=0; 
             int count = 0; 
 
             foreach (var point in voltagePointsX)

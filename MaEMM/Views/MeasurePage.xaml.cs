@@ -14,6 +14,10 @@ namespace MaEMM.Views
 {
     public sealed partial class MeasurePage : Page, INotifyPropertyChanged
     {
+        private IDataPresenter datapresenter_;
+        private IDataCalculator datacalculator_;
+        private IDataProcessor dataprocessor_;
+         
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO; 
 
@@ -21,7 +25,11 @@ namespace MaEMM.Views
         // For help see http://docs.telerik.com/windows-universal/controls/radchart/getting-started
         public MeasurePage()
         {
+
             InitializeComponent();
+            dataprocessor_ = new DataProcessor();
+            datacalculator_ = new DataCalculator(dataprocessor_);
+            datapresenter_ = new DataPresenter(datacalculator_);
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -63,6 +71,11 @@ namespace MaEMM.Views
         private void saveMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Save), informationDTO);
+        }
+
+        private void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
         }
     }
 }

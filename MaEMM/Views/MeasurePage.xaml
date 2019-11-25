@@ -30,7 +30,7 @@
                     </tc:BarSeries.ValueBinding>
                 </tc:BarSeries>
             </tc:RadCartesianChart>
-            <Button x:Name="startMeasurementB" Content="Start measurement" Margin="544,56,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1"/>
+            <Button x:Name="startMeasurementB" Content="Start measurement" Margin="544,56,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1" Click="startMeasurementB_Click"/>
             <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="544,240,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1"/>
             <Button x:Name="saveMeasurementB" Content="Save measurement" Margin="544,282,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="saveMeasurementB_Click" Grid.Row="1"/>
             <Button x:Name="resetMeasurementB" Content="Reset measurement" Margin="544,324,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1"/>

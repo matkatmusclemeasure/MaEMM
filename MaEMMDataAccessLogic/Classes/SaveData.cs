@@ -8,7 +8,7 @@ using Windows.Storage;
 
 namespace MaEMMDataAccessLogic
 {
-    class SaveData : ISaveData
+    public class SaveData : ISaveData
     {
 
         public async void saveDatastring(string dataArranged)
