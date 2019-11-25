@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    class DataCalculator : IDataCalculator
+    public class DataCalculator : IDataCalculator
     {
         private double armLength;
         private IDataProcessor dataProcessor_;

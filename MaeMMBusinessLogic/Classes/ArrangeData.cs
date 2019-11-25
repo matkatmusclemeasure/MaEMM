@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    class ArrangeData : IArrangeData
+    public class ArrangeData : IArrangeData
     {
         //private SaveData saveData;
 

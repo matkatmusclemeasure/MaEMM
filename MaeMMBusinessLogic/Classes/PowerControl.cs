@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    class PowerControl
+    public class PowerControl
     {
     }
 }

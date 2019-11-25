@@ -1,16 +1,19 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using MaeMMBusinessLogic;
 using Windows.UI.Xaml.Controls;
 
 namespace MaEMM.Views
 {
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
+        private Inform informpage;
+
         public MainPage()
         {
             InitializeComponent();
+            informpage = new Inform("Bedst i test");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,6 +33,7 @@ namespace MaEMM.Views
 
         private void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            
             this.Frame.Navigate(typeof(Inform));
         }
 

@@ -23,9 +23,10 @@ namespace MaEMM
     /// </summary>
     public sealed partial class Inform : Page
     {
-        public Inform()
+        public Inform(string title)
         {
             this.InitializeComponent();
+            testTitleTB.Text = title;
         }
 
         private void nextB_Click(object sender, RoutedEventArgs e)

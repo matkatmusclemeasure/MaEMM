@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    interface IDataProcessor
+    public interface IDataProcessor
     {
         event EventHandler<SendDoubleEvent> sendDouble;
 
