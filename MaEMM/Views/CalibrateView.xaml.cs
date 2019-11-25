@@ -25,11 +25,20 @@ namespace MaEMM
     {
         private bool calibrationMade = false;
         private bool firstTimeChanged = true;
+        private double moment;
+        private double voltage; 
+        private List<double> momentPointsY; 
+        private List<double> voltagePointsX;
+        private double aSlope;
+        private double bIntercept; 
 
         public Calibrate()
         {
             this.InitializeComponent();
             strengthCB.SelectedIndex = 0;
+            momentPointsY = new List<double>();
+            voltagePointsX = new List<double>(); 
+            
         }
 
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
@@ -39,44 +48,77 @@ namespace MaEMM
 
         private void weight1B_Click(object sender, RoutedEventArgs e)
         {
-            // Skal have omregnet den indtastede vægt og den indtastede armlængde til et moment, som kan
-            // kædes sammen med den spænding som måles når der trykkes på knappen gem.
-            // Disse værdier skal benyttes til at regne kalibreringsværdierne a og b ved regression, 
-            // for sammenhængen mellem uafhængig variabel spænding, x, og afhængig variabel moment, y. 
+            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
+            momentPointsY.Add(moment);
+
+            //voltage = IncomingVoltage.somehow;
+            voltagePointsX.Add(voltage); 
         }
 
         private void weight2B_Click(object sender, RoutedEventArgs e)
         {
-            // Skal have omregnet den indtastede vægt og den indtastede armlængde til et moment, som kan
-            // kædes sammen med den spænding som måles når der trykkes på knappen gem.
-            // Disse værdier skal benyttes til at regne kalibreringsværdierne a og b ved regression, 
-            // for sammenhængen mellem uafhængig variabel spænding, x, og afhængig variabel moment, y.
+            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
+            momentPointsY.Add(moment);
+
+            //voltage = IncomingVoltage.somehow;
+            voltagePointsX.Add(voltage);
         }
 
         private void weight3B_Click(object sender, RoutedEventArgs e)
         {
-            // Skal have omregnet den indtastede vægt og den indtastede armlængde til et moment, som kan
-            // kædes sammen med den spænding som måles når der trykkes på knappen gem.
-            // Disse værdier skal benyttes til at regne kalibreringsværdierne a og b ved regression, 
-            // for sammenhængen mellem uafhængig variabel spænding, x, og afhængig variabel moment, y.
+            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
+            momentPointsY.Add(moment);
+
+            //voltage = IncomingVoltage.somehow;
+            voltagePointsX.Add(voltage);
         }
 
         private void weight4B_Click(object sender, RoutedEventArgs e)
         {
-            // Skal have omregnet den indtastede vægt og den indtastede armlængde til et moment, som kan
-            // kædes sammen med den spænding som måles når der trykkes på knappen gem.
-            // Disse værdier skal benyttes til at regne kalibreringsværdierne a og b ved regression, 
-            // for sammenhængen mellem uafhængig variabel spænding, x, og afhængig variabel moment, y.
+            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
+            momentPointsY.Add(moment);
+
+            //voltage = IncomingVoltage.somehow;
+            voltagePointsX.Add(voltage);
         }
 
         private void calibrateB_Click(object sender, RoutedEventArgs e)
         {
-            //Her sker selve udregningen af kalibreringsværdierne a og b ved lineær regression
-            // hvor de 4 indtastede/målte datasæt benyttes i beregningerne.
-            // Til sidst gemmes a og b, kalibreringsværdierne på sd kortet så disse kan læses ind hver gang
-            // programmet åbnes.
+            int n = momentPointsY.Count;
+            double sumXY;
+            double sumX;
+            double sumXpower2; 
+            double sumY; 
+            int count = 0; 
+
+            foreach (var point in voltagePointsX)
+            {
+                sumXY = +(point*momentPointsY[count]);
+                count++; 
+            }
+
+            foreach (var point in voltagePointsX)
+            {
+                sumX = +point; 
+            }
+
+            foreach (var point in momentPointsY)
+            {
+                sumY = +point; 
+            }
+
+            foreach (var point in voltagePointsX)
+            {
+                sumXpower2 = +(point*point); 
+            }
+
+            aSlope = (n * sumXY - (sumX * sumY)) / (sumXpower2 - (sumX * sumX));
+            bIntercept = (1 / n) * (sumY - (aSlope * sumX));
 
             calibrationMade = true;
+
+            // Til sidst gemmes a og b, kalibreringsværdierne på sd kortet så disse kan læses ind hver gang
+            // programmet åbnes.
         }
 
         private void strengthCB_SelectionChanged(object sender, SelectionChangedEventArgs e)

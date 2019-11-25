@@ -45,7 +45,6 @@ namespace MaEMMDataAccessLogic
 
                 //sw.WriteLine(dataArranged);
             }
-           
         }
     }
 }

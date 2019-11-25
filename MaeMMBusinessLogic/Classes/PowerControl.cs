@@ -8,5 +8,6 @@ namespace MaeMMBusinessLogic
 {
     public class PowerControl
     {
+
     }
 }
