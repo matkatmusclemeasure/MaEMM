@@ -14,5 +14,10 @@ namespace MaeMMBusinessLogic
 
         void sendCoordinates(object sender, SendCoordinateEvent e);
 
+        void meassure();
+
+        void setParameter(DataPCParameterDTO PDTO);
+        
+
     }
 }

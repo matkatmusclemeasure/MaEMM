@@ -8,6 +8,12 @@ namespace MaeMMBusinessLogic
 {
     public interface IDataCalculator
     {
-        event EventHandler<SendCoordinateEvent> sendCoordinate; 
+        event EventHandler<SendCoordinateEvent> sendCoordinate;
+        void meassure();
+
+        void setParameter(DataPCParameterDTO PDTO);
+
+        void calculateForce(object sender, SendDoubleEvent e);
+        
     }
 }

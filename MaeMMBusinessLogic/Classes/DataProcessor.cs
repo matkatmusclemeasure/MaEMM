@@ -20,28 +20,28 @@ namespace MaeMMBusinessLogic
 
         public DataProcessor()
         {
-
+            adConverter = new ADC();
         }
 
         public void meassure()
         {
-
+            procesVoltage(1);
         }
         
-        public void procesVoltage(object sender, SendDoubleEvent e)
+        public void procesVoltage(double voltage)
         {
-            double voltage = e.forceInput;
+            double voltage_ = voltage;
             double torque =0;
             switch(strengthLevel)
             {
                 case "Reduced strength":
-                    torque = 13784 * voltage + (2 * Math.Pow(10, -8));
+                    torque = 13784 * voltage_ + (2 * Math.Pow(10, -8));
                     break;
                 case "Medium strength":
-                    torque = 25332 * voltage + (2 * Math.Pow(10, -8));
+                    torque = 25332 * voltage_ + (2 * Math.Pow(10, -8));
                     break;
                 case "Full strength":
-                    torque = 37491 * voltage + (2 * Math.Pow(10, -8));
+                    torque = 37491 * voltage_ + (2 * Math.Pow(10, -8));
                     break;
 
             }

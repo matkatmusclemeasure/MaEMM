@@ -31,14 +31,14 @@
                 </tc:BarSeries>
             </tc:RadCartesianChart>
             <Button x:Name="startMeasurementB" Content="Start measurement" Margin="544,56,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1" Click="startMeasurementB_Click"/>
-            <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="544,240,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1"/>
+            <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="544,240,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1" Click="stopMeasurementB_Click"/>
             <Button x:Name="saveMeasurementB" Content="Save measurement" Margin="544,282,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="saveMeasurementB_Click" Grid.Row="1"/>
             <Button x:Name="resetMeasurementB" Content="Reset measurement" Margin="544,324,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1"/>
             <TextBlock HorizontalAlignment="Left" Margin="-10,10,0,0" Text="Measure" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Verdana" Foreground="#FF040404"/>
             <TextBlock HorizontalAlignment="Left" Margin="544,47,0,0" Text ="Enter armlength" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="173" Foreground="#FF040404" Grid.RowSpan="2"/>
-            <TextBox HorizontalAlignment="Left" Margin="544,16,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="544,188,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="544,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
+            <TextBox x:Name="armlengthTB" HorizontalAlignment="Left" Margin="544,16,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
+            <TextBox x:Name="rateOfForceDevTB" HorizontalAlignment="Left" Margin="544,188,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
+            <TextBox x:Name="muscleForceTB" HorizontalAlignment="Left" Margin="544,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
             <TextBlock HorizontalAlignment="Left" Text="Muscle force" Margin="544,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404" Grid.Row="1"/>
             <TextBlock HorizontalAlignment="Left" Text="Rate of force development" Margin="544,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404" Grid.Row="1"/>
             <TextBlock HorizontalAlignment="Left" Text ="Nm" Margin="681,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="26" Foreground="#FF040404" Grid.Row="1"/>

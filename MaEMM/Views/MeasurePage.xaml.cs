@@ -75,7 +75,21 @@ namespace MaEMM.Views
 
         private void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            DataPCParameterDTO DTO = new DataPCParameterDTO(armle);
+            datapresenter_.setParameter()
 
+            for (int i = 0; i < 100; i++)
+            {
+                datapresenter_.meassure();
+            }
+            
+        }
+
+        private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            MaxExpDTOP maxDTO = datapresenter_.showResult();
+            muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
+            rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
         }
     }
 }

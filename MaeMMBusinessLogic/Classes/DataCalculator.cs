@@ -14,15 +14,22 @@ namespace MaeMMBusinessLogic
 
         public event EventHandler<SendCoordinateEvent> sendCoordinate;
 
+        
         public DataCalculator(IDataProcessor dataProcessor)
         {
             dataProcessor_ = dataProcessor;
             dataProcessor_.sendDouble += calculateForce; 
         }
 
+        public void meassure()
+        {
+            dataProcessor_.meassure();
+        }
+
         public void setParameter(DataPCParameterDTO PDTO)
         {
             armLength = PDTO.armLength;
+            dataProcessor_.setParameter(PDTO);
         }
 
         public void calculateForce(object sender, SendDoubleEvent e)
@@ -31,9 +38,11 @@ namespace MaeMMBusinessLogic
 
             double torque = e.forceInput;
 
-            double force = torque / (armLength - 5);
+            //double force = torque / (armLength - 5);
 
-            double muscleTorque = force * armLength;
+            //double muscleTorque = force * armLength;
+
+            double muscleTorque = torque; //TEST, SKAL BRUGE DEN OVENFOR
 
             timecount += 0.001;
 

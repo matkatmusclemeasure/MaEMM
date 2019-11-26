@@ -13,7 +13,7 @@ namespace MaEMM.Views
         public MainPage()
         {
             InitializeComponent();
-            informpage = new Inform("Bedst i test");
+            //informpage = new Inform("Bedst i test");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -10,7 +10,12 @@ namespace MaeMMBusinessLogic
     {
         event EventHandler<SendDoubleEvent> sendDouble;
 
-        void procesVoltage(object sender, SendDoubleEvent e);
+        void procesVoltage(double voltage);
+
+        void meassure();
+
+        void setParameter(DataPCParameterDTO PDTO);
+      
 
     }
 }

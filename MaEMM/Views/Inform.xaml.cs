@@ -23,15 +23,15 @@ namespace MaEMM
     /// </summary>
     public sealed partial class Inform : Page
     {
-        public Inform(string title)
+        public Inform()
         {
             this.InitializeComponent();
-            testTitleTB.Text = title;
+            //testTitleTB.Text = title;
         }
 
         private void nextB_Click(object sender, RoutedEventArgs e)
         {
-            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, genderCB.Text, Convert.ToString(dateTimeDT));
+            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, genderCB.Text, Convert.ToString(dateTimeDT), strengthNiveauCB.Text);
             this.Frame.Navigate(typeof(Views.MeasurePage), informationDTO);
             
         }
