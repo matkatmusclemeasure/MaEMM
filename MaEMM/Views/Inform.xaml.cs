@@ -23,6 +23,9 @@ namespace MaEMM
     /// </summary>
     public sealed partial class Inform : Page
     {
+        private string gender = "";
+        private string strengthLevel = "";
+
         public Inform()
         {
             this.InitializeComponent();
@@ -31,7 +34,7 @@ namespace MaEMM
 
         private void nextB_Click(object sender, RoutedEventArgs e)
         {
-            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, genderCB.Text, Convert.ToString(dateTimeDT), strengthNiveauCB.Text);
+            InformationDTO informationDTO = new InformationDTO(testTitleTB.Text, nameTB.Text, pIDTB.Text, testIDTB.Text, gender, Convert.ToString(dateTimeDT), strengthLevel);
             this.Frame.Navigate(typeof(Views.MeasurePage), informationDTO);
             
         }
@@ -52,6 +55,13 @@ namespace MaEMM
             dateTimeDT.IsEnabled = true;
             commentsTB.IsEnabled = true;
             nextB.IsEnabled = true;
+
+            strengthLevel = e.AddedItems[0].ToString();
+        }
+
+        private void genderCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            gender = e.AddedItems[0].ToString();
         }
     }
 }

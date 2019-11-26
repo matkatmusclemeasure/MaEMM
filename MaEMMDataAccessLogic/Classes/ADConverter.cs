@@ -195,6 +195,7 @@ namespace MaEMMDataAccessLogic
             // Shift 12-bit results right 4 bits for the ADS1015
             return (UInt16)(readRegister(_deviceAddress) >> _bitShift);
         }
+        
         public Int16 readADC_Differential_0_1()
         {
             // Start with default values

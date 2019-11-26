@@ -36,7 +36,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="628,257,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="628,294,0,0" Text="degrees" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="628,330,0,0" Text="cm" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="10" Foreground="Black"/>
-        <ComboBox x:Name="genderCB" Margin="143,301,0,0" Width="168" IsEnabled="False">
+        <ComboBox x:Name="genderCB" Margin="143,301,0,0" Width="168" IsEnabled="False" SelectionChanged="genderCB_SelectionChanged">
             <x:String>Female</x:String>
             <x:String>Male</x:String>
         </ComboBox>

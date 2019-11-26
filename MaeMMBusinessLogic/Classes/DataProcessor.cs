@@ -25,28 +25,30 @@ namespace MaeMMBusinessLogic
 
         public void meassure()
         {
-            procesVoltage(1);
+            procesVoltage(adConverter.readADC_Differential_0_1());
         }
         
         public void procesVoltage(double voltage)
         {
-            double voltage_ = voltage;
+
+            double voltage_ = (0.001*voltage-2.048);
+
             double torque =0;
-            switch(strengthLevel)
-            {
-                case "Reduced strength":
-                    torque = 13784 * voltage_ + (2 * Math.Pow(10, -8));
-                    break;
-                case "Medium strength":
-                    torque = 25332 * voltage_ + (2 * Math.Pow(10, -8));
-                    break;
-                case "Full strength":
-                    torque = 37491 * voltage_ + (2 * Math.Pow(10, -8));
-                    break;
+            //switch(strengthLevel)
+            //{
+            //    case "Reduced strength":
+            //        torque = 13784 * voltage_ + (2 * Math.Pow(10, -8));
+            //        break;
+            //    case "Medium strength":
+            //        torque = 25332 * voltage_ + (2 * Math.Pow(10, -8));
+            //        break;
+            //    case "Full strength":
+            //        torque = 37491 * voltage_ + (2 * Math.Pow(10, -8));
+            //        break;
 
-            }
+            //}
 
-            SendDoubleEvent doubleEvent = new SendDoubleEvent(torque);
+            SendDoubleEvent doubleEvent = new SendDoubleEvent(voltage_);
             sendDouble?.Invoke(this, doubleEvent);
         }
 
