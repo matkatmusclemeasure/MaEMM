@@ -14,21 +14,24 @@
                 <RowDefinition Height="56*"/>
                 <RowDefinition Height="377*"/>
             </Grid.RowDefinitions>
-            <tc:RadCartesianChart Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539" Grid.RowSpan="2">
+
+            
+            <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539" Grid.ColumnSpan="2">
                 <tc:RadCartesianChart.HorizontalAxis>
-                    <tc:CategoricalAxis />
+                    <tc:LinearAxis/>
                 </tc:RadCartesianChart.HorizontalAxis>
                 <tc:RadCartesianChart.VerticalAxis>
                     <tc:LinearAxis />
                 </tc:RadCartesianChart.VerticalAxis>
-                <tc:BarSeries ItemsSource="{x:Bind Source, Mode=OneWay}" ShowLabels="True">
-                    <tc:BarSeries.CategoryBinding>
-                        <tc:PropertyNameDataPointBinding PropertyName="Category" />
-                    </tc:BarSeries.CategoryBinding>
-                    <tc:BarSeries.ValueBinding>
-                        <tc:PropertyNameDataPointBinding PropertyName="Value" />
-                    </tc:BarSeries.ValueBinding>
-                </tc:BarSeries>
+                
+                <tc:ScatterLineSeries x:Name="MuscleForce" ItemsSource="{Binding }">
+                    <tc:ScatterLineSeries.XValueBinding>
+                        <tc:PropertyNameDataPointBinding PropertyName="Time" />
+                    </tc:ScatterLineSeries.XValueBinding>
+                    <tc:ScatterLineSeries.YValueBinding>
+                        <tc:PropertyNameDataPointBinding PropertyName="Torque" />
+                    </tc:ScatterLineSeries.YValueBinding>
+                </tc:ScatterLineSeries>
             </tc:RadCartesianChart>
             <Button x:Name="startMeasurementB" Content="Start measurement" Margin="544,56,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1" Click="startMeasurementB_Click"/>
             <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="544,240,0,0" VerticalAlignment="Top" Width="162" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Grid.Row="1" Click="stopMeasurementB_Click"/>
