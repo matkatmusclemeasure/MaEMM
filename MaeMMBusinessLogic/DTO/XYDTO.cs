@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    class XYDTO
+    public class XYDTO
     {
         public XYDTO(double X_, double Y_)
         {

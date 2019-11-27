@@ -24,12 +24,12 @@
                     <tc:LinearAxis />
                 </tc:RadCartesianChart.VerticalAxis>
                 
-                <tc:ScatterLineSeries x:Name="MuscleForce" ItemsSource="{Binding }">
+                <tc:ScatterLineSeries x:Name="MuscleForce" ItemsSource="{Binding}">
                     <tc:ScatterLineSeries.XValueBinding>
-                        <tc:PropertyNameDataPointBinding PropertyName="Time" />
+                        <tc:PropertyNameDataPointBinding PropertyName="X" />
                     </tc:ScatterLineSeries.XValueBinding>
                     <tc:ScatterLineSeries.YValueBinding>
-                        <tc:PropertyNameDataPointBinding PropertyName="Torque" />
+                        <tc:PropertyNameDataPointBinding PropertyName="Y" />
                     </tc:ScatterLineSeries.YValueBinding>
                 </tc:ScatterLineSeries>
             </tc:RadCartesianChart>
