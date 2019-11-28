@@ -32,6 +32,7 @@ namespace MaEMM.Views
             dataprocessor_ = new DataProcessor();
             datacalculator_ = new DataCalculator(dataprocessor_);
             datapresenter_ = new DataPresenter(datacalculator_);
+            datapresenter_.sendCoordinate += updateGraph;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -81,19 +82,11 @@ namespace MaEMM.Views
             DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 1, informationDTO.strengthLevel);
             datapresenter_.setParameter(DTO);
 
-            XYDTO xyCoordinates; //kat
-            List<XYDTO> graphCoordinates = new List<XYDTO>(); //kat 
-
             for (int i = 0; i < 100; i++)
             {
                 datapresenter_.meassure();
-                xyCoordinates = new XYDTO(time, torque); //kat 
-                graphCoordinates.Add(xyCoordinates); //kat 
             }
-            startMeasurementB.IsEnabled = true;
-
-            //Opdatering af graph
-            this.MuscleForceChart.DataContext = graphCoordinates; //kat 
+            startMeasurementB.IsEnabled = false;
         }
 
         private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -101,6 +94,17 @@ namespace MaEMM.Views
             MaxExpDTOP maxDTO = datapresenter_.showResult();
             muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
             rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
+        }
+
+        private void updateGraph(object sender, SendCoordinateEvent e)
+        { 
+            List<XYDTO> graphCoordinates = new List<XYDTO>(); //kat
+            XYDTO xyCoordinates = new XYDTO(e.x, e.y); //kat
+
+            graphCoordinates.Add(xyCoordinates); //kat
+
+            //Opdatering af graph
+            this.MuscleForceChart.DataContext = graphCoordinates; //kat 
         }
     }
 }
