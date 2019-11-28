@@ -19,8 +19,9 @@ namespace MaEMM.Views
         private IDataPresenter datapresenter_;
         private IDataCalculator datacalculator_;
         private IDataProcessor dataprocessor_;
+        private List<XYDTO> graphCoordinates; //kat
+        private bool firsttime = true;
 
-         
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO; 
 
@@ -29,6 +30,7 @@ namespace MaEMM.Views
         public MeasurePage()
         {
             InitializeComponent();
+            graphCoordinates = new List<XYDTO>(); //kat
             dataprocessor_ = new DataProcessor();
             datacalculator_ = new DataCalculator(dataprocessor_);
             datapresenter_ = new DataPresenter(datacalculator_);
@@ -93,20 +95,44 @@ namespace MaEMM.Views
 
         private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            this.MuscleForceChart.DataContext = graphCoordinates; //kat 
             MaxExpDTOP maxDTO = datapresenter_.showResult();
             muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
             rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
+
+            
         }
 
         private void updateGraph(object sender, SendCoordinateEvent e)
         { 
-            List<XYDTO> graphCoordinates = new List<XYDTO>(); //kat
+            
             XYDTO xyCoordinates = new XYDTO(e.x, e.y); //kat
 
             graphCoordinates.Add(xyCoordinates); //kat
 
             //Opdatering af graph
-            this.MuscleForceChart.DataContext = graphCoordinates; //kat 
+            //if(firsttime == false)
+            //{
+            //    this.MuscleForceChart.DataContext = graphCoordinates; //kat 
+            //}
+            //else
+            //{
+            //    firsttime = false;
+            //}
+            
+        }
+
+        private void resetMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            List<XYDTO> graphCoordinates = new List<XYDTO>();  //kat
+            graphCoordinates.Add(new XYDTO(1, 2));
+            graphCoordinates.Add(new XYDTO(2, 3));
+            graphCoordinates.Add(new XYDTO(3, 4));
+            graphCoordinates.Add(new XYDTO(4, 3));
+            graphCoordinates.Add(new XYDTO(5, 1));
+
+            this.MuscleForceChart.DataContext = graphCoordinates;
+
         }
     }
 }
