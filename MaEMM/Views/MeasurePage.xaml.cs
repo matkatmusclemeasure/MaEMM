@@ -82,11 +82,13 @@ namespace MaEMM.Views
             DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 1, informationDTO.strengthLevel);
             datapresenter_.setParameter(DTO);
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 20; i++)
             {
                 datapresenter_.meassure();
+
+                System.Threading.Thread.Sleep(500);
             }
-            startMeasurementB.IsEnabled = false;
+            startMeasurementB.IsEnabled = true;
         }
 
         private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

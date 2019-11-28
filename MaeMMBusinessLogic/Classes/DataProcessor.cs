@@ -12,6 +12,7 @@ namespace MaeMMBusinessLogic
     {
         //Finder vha. spænding momentet ved Strain Gauge ud fra de værdier der findes fra kalibrering 
         //Momentet sendes videre til calculator 
+        int count = 1;
 
         private ADC adConverter;
 
@@ -25,13 +26,18 @@ namespace MaeMMBusinessLogic
 
         public void meassure()
         {
-            procesVoltage(adConverter.readADC_Differential_0_1());
+            //procesVoltage(adConverter.readADC_Differential_0_1());
+
+            procesVoltage(count);
+            count++;
         }
         
         public void procesVoltage(double voltage)
         {
 
-            double voltage_ = (0.001*voltage-2.048);
+            //double voltage_ = (0.001*voltage-2.048);
+
+            double voltage_ = voltage;
 
             double torque =0;
             //switch(strengthLevel)
