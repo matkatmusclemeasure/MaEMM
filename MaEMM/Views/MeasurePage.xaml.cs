@@ -90,7 +90,7 @@ namespace MaEMM.Views
                 xyCoordinates = new XYDTO(time, torque); //kat 
                 graphCoordinates.Add(xyCoordinates); //kat 
             }
-            startMeasurementB.IsEnabled = false;
+            startMeasurementB.IsEnabled = true;
 
             //Opdatering af graph
             this.MuscleForceChart.DataContext = graphCoordinates; //kat 
