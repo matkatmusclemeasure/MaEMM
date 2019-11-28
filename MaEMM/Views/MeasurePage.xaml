@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
 
             
-            <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539" Grid.ColumnSpan="2">
+            <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539" Grid.ColumnSpan="2" Background="Chartreuse" Foreground="Aquamarine">
                 <tc:RadCartesianChart.HorizontalAxis>
                     <tc:LinearAxis/>
                 </tc:RadCartesianChart.HorizontalAxis>
