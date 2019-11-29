@@ -121,7 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\ArrangeData.cs" />
-    <Compile Include="Classes\Calibrate.cs" />
+    <Compile Include="Classes\CalibrateLogic.cs" />
     <Compile Include="Classes\DataCalculator.cs" />
     <Compile Include="Classes\DataPresenter.cs" />
     <Compile Include="Classes\DataProcessor.cs" />

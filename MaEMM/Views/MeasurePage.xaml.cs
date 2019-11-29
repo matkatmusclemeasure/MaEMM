@@ -104,7 +104,8 @@ namespace MaEMM.Views
             graphCoordinates.Add(xyCoordinates); //kat
 
             //Opdatering af graph
-            this.MuscleForceChart.DataContext = graphCoordinates; //kat 
+            this.MuscleForceChart.DataContext = graphCoordinates; //kat
+
         }
     }
 }

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    interface ICalibrate
+    public interface ICalibrate
     {
         double getVoltage(int numberOfMeasurements);
+
+        void enterCalibrationValues(double weight_, double armlength_);
+
+        void startCalibration();
     }
 }

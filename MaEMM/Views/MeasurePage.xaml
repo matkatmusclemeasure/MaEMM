@@ -9,14 +9,14 @@
     mc:Ignorable="d" Background="#FFFBFAFA">
 
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid Margin="0,0,-18,0" Background="White">
+        <Grid Margin="0,0,-18,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="56*"/>
                 <RowDefinition Height="377*"/>
             </Grid.RowDefinitions>
 
             
-            <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539" Grid.ColumnSpan="2" Background="Chartreuse" Foreground="Aquamarine">
+            <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,11" HorizontalAlignment="Left" Width="539" Grid.ColumnSpan="2" Background="Chartreuse" Foreground="Aquamarine" >
                 <tc:RadCartesianChart.HorizontalAxis>
                     <tc:LinearAxis/>
                 </tc:RadCartesianChart.HorizontalAxis>

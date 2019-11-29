@@ -8,6 +8,8 @@ namespace MaEMMDataAccessLogic
 {
     public interface ISaveData
     {
-        void saveDatastring(string dataArranged); 
+        void saveDatastring(string dataArranged);
+
+        void saveCalibration(double aSlope_, double bIntercept_); 
     }
 }

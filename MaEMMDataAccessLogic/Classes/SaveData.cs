@@ -46,5 +46,17 @@ namespace MaEMMDataAccessLogic
                 //sw.WriteLine(dataArranged);
             }
         }
+
+        public async void saveCalibration(double aSlope_, double bIntercept)
+        {
+            var removableDevices = KnownFolders.RemovableDevices;
+            var externalDrives = await removableDevices.GetFoldersAsync();
+            var drive0 = externalDrives[0];
+
+            var Folder = await drive0.CreateFolderAsync("Calibration");
+            var File = await Folder.CreateFileAsync("Calibrationfile.txt");
+
+
+        }
     }
 }
