@@ -17,6 +17,7 @@ namespace MaeMMBusinessLogic
             patientGender = patientGender_;
             dateOfMeasurement = dateOfMeasurement_;
             strengthLevel = strengthLevel_;
+            
         }
 
         public string testTitle { get; set; }
@@ -47,6 +48,9 @@ namespace MaeMMBusinessLogic
 
         public string furtherComments { get; set; }
 
+        public double aSlope { get; set; }
+
+        public double bIntercept { get; set; }
 
     }
 }

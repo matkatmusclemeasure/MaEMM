@@ -26,18 +26,18 @@ namespace MaeMMBusinessLogic
 
         public void meassure()
         {
-            //procesVoltage(adConverter.readADC_Differential_0_1());
+            procesVoltage(adConverter.readADC_Differential_0_1());
 
-            procesVoltage(count);
-            count++;
+            //procesVoltage(count);
+            //count++;
         }
-        
+
         public void procesVoltage(double voltage)
         {
 
-            //double voltage_ = (0.001*voltage-2.048);
+            double voltage_ = (0.001 * voltage - 2.048);
 
-            double voltage_ = voltage;
+            //double voltage_ = voltage;
 
             double torque =0;
             //switch(strengthLevel)

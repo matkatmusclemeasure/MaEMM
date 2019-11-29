@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MaEMMDataAccessLogic
 {
-    public interface ISaveData
+    class SaveDataExternal : ISaveData
     {
-        //void saveDatastring(string dataArranged);
+        public void save(string saveInformation_)
+        {
 
-        void save(string saveInformation); 
+        }
     }
 }

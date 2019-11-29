@@ -95,7 +95,7 @@ namespace MaEMM.Views
 
         private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.MuscleForceChart.DataContext = graphCoordinates; //kat 
+            //this.MuscleForceChart.DataContext = graphCoordinates; //kat 
             MaxExpDTOP maxDTO = datapresenter_.showResult();
             muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
             rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
@@ -106,9 +106,9 @@ namespace MaEMM.Views
         private void updateGraph(object sender, SendCoordinateEvent e)
         { 
             
-            XYDTO xyCoordinates = new XYDTO(e.x, e.y); //kat
+            //XYDTO xyCoordinates = new XYDTO(e.x, e.y); //kat
 
-            graphCoordinates.Add(xyCoordinates); //kat
+            //graphCoordinates.Add(xyCoordinates); //kat
 
             //Opdatering af graph
             //if(firsttime == false)

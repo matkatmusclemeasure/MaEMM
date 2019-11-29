@@ -110,7 +110,7 @@ namespace MaEMMDataAccessLogic
 
         private async Task FindDevices()
         {
-            var settings = new I2cConnectionSettings(0x40);
+            var settings = new I2cConnectionSettings(0x48);
             settings.BusSpeed = I2cBusSpeed.FastMode;
             settings.SharingMode = I2cSharingMode.Shared;
 
