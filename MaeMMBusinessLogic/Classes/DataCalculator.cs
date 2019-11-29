@@ -44,7 +44,7 @@ namespace MaeMMBusinessLogic
 
             double muscleTorque = torque; //TEST, SKAL BRUGE DEN OVENFOR
 
-            timecount += 0.001;
+            timecount += 0.5;
 
             SendCoordinateEvent coordinateEvent = new SendCoordinateEvent(timecount, muscleTorque);
             sendCoordinate?.Invoke(this, coordinateEvent);
