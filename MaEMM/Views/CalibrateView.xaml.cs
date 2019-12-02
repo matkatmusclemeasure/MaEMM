@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MaeMMBusinessLogic; 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,19 +26,21 @@ namespace MaEMM
     {
         private bool calibrationMade = false;
         private bool firstTimeChanged = true;
-        private double moment;
-        private double voltage; 
+ 
         private List<double> momentPointsY; 
         private List<double> voltagePointsX;
         private double aSlope;
-        private double bIntercept; 
+        private double bIntercept;
+
+        private ICalibrate calibrate; 
 
         public Calibrate()
         {
             this.InitializeComponent();
             strengthCB.SelectedIndex = 0;
             momentPointsY = new List<double>();
-            voltagePointsX = new List<double>(); 
+            voltagePointsX = new List<double>();
+            calibrate = new CalibrateLogic(); 
             
         }
 
@@ -48,77 +51,28 @@ namespace MaEMM
 
         private void weight1B_Click(object sender, RoutedEventArgs e)
         {
-            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
-            momentPointsY.Add(moment);
-
-            //voltage = IncomingVoltage.somehow;
-            voltagePointsX.Add(voltage); 
+            calibrate.enterCalibrationValues(Convert.ToDouble(weightOneTB.Text), Convert.ToDouble(weightOneTB.Text)); 
         }
 
         private void weight2B_Click(object sender, RoutedEventArgs e)
         {
-            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
-            momentPointsY.Add(moment);
-
-            //voltage = IncomingVoltage.somehow;
-            voltagePointsX.Add(voltage);
+            calibrate.enterCalibrationValues(Convert.ToDouble(weightTwoTB.Text), Convert.ToDouble(weightTwoTB.Text));
         }
 
         private void weight3B_Click(object sender, RoutedEventArgs e)
         {
-            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
-            momentPointsY.Add(moment);
-
-            //voltage = IncomingVoltage.somehow;
-            voltagePointsX.Add(voltage);
+            calibrate.enterCalibrationValues(Convert.ToDouble(weightThreeTB.Text), Convert.ToDouble(weightThreeTB.Text));
         }
 
         private void weight4B_Click(object sender, RoutedEventArgs e)
         {
-            moment = Convert.ToDouble(weightOneTB.Text) * Convert.ToDouble(armLengthTB.Text);
-            momentPointsY.Add(moment);
-
-            //voltage = IncomingVoltage.somehow;
-            voltagePointsX.Add(voltage);
+            calibrate.enterCalibrationValues(Convert.ToDouble(weightFourTB.Text), Convert.ToDouble(weightFourTB.Text));
         }
 
         private void calibrateB_Click(object sender, RoutedEventArgs e)
         {
-            int n = momentPointsY.Count;
-            double sumXY=0;
-            double sumX=0;
-            double sumXpower2=0; 
-            double sumY=0; 
-            int count = 0; 
-
-            foreach (var point in voltagePointsX)
-            {
-                sumXY = +(point*momentPointsY[count]);
-                count++; 
-            }
-
-            foreach (var point in voltagePointsX)
-            {
-                sumX = +point; 
-            }
-
-            foreach (var point in momentPointsY)
-            {
-                sumY = +point; 
-            }
-
-            foreach (var point in voltagePointsX)
-            {
-                sumXpower2 = +(point*point); 
-            }
-
-            aSlope = (n * sumXY - (sumX * sumY)) / (sumXpower2 - (sumX * sumX));
-            bIntercept = (1 / n) * (sumY - (aSlope * sumX));
-
+            calibrate.startCalibration(); 
             calibrationMade = true;
-
-            // Til sidst gemmes a og b, kalibreringsværdierne på sd kortet så disse kan læses ind hver gang
-            // programmet åbnes.
         }
 
         private void strengthCB_SelectionChanged(object sender, SelectionChangedEventArgs e)

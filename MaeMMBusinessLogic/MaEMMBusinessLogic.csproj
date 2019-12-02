@@ -121,7 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\ArrangeData.cs" />
-    <Compile Include="Classes\Calibrate.cs" />
+    <Compile Include="Classes\CalibrateLogic.cs" />
     <Compile Include="Classes\DataCalculator.cs" />
     <Compile Include="Classes\DataPresenter.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
@@ -135,10 +135,12 @@
     <Compile Include="Interfaces\IPowerControl.cs" />
     <Compile Include="Classes\PowerControl.cs" />
     <Compile Include="DTO\MaxExpDTOP.cs" />
+    <Compile Include="Interfaces\IZeroPointAdjustment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Event\SendCoordinateEvent.cs" />
     <Compile Include="DTO\XYDTO.cs" />
     <Compile Include="Event\SendDoubleEvent.cs" />
+    <Compile Include="Classes\ZeroPointAdjustment.cs" />
     <EmbeddedResource Include="Properties\MaeMMBusinessLogic.rd.xml" />
   </ItemGroup>
   <ItemGroup>

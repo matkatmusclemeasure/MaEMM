@@ -31,11 +31,11 @@ namespace MaeMMBusinessLogic
             //procesVoltage(count);
             //count++;
         }
-        
+
         public void procesVoltage(double voltage)
         {
 
-            double voltage_ = (0.001*voltage-2.048);
+            double voltage_ = (0.001 * voltage - 2.048);
 
             //double voltage_ = voltage;
 

@@ -22,14 +22,16 @@ namespace MaEMM.Views
         private IDataPresenter datapresenter_;
         private IDataCalculator datacalculator_;
         private IDataProcessor dataprocessor_;
+        private IZeroPointAdjustment zeroPointAdjustment_; 
         private List<XYDTO> graphCoordinates; //kat
         private bool firsttime = true;
+        private double zeroPointValue;
         private bool measureRunning = false;
         private Thread measureThread;
         private int testcount = 0;
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
-        private InformationDTO informationDTO; 
+        private InformationDTO informationDTO;
 
         // TODO WTS: Change the chart as appropriate to your app.
         // For help see http://docs.telerik.com/windows-universal/controls/radchart/getting-started
@@ -40,6 +42,7 @@ namespace MaEMM.Views
             dataprocessor_ = new DataProcessor();
             datacalculator_ = new DataCalculator(dataprocessor_);
             datapresenter_ = new DataPresenter(datacalculator_);
+            zeroPointAdjustment_ = new ZeroPointAdjustment(); 
             datapresenter_.sendCoordinate += updateGraph;
             
         }
@@ -141,7 +144,7 @@ namespace MaEMM.Views
             //{
             //    firsttime = false;
             //}
-            
+
         }
 
         private void resetMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -156,5 +159,16 @@ namespace MaEMM.Views
             this.MuscleForceChart.DataContext = graphCoordinates;
 
         }
+
+        private void zeroPointAdjustmentB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            zeroPointAdjustment_.sendDouble += setZeroPointValue;
+        }
+
+        private void setZeroPointValue(object sender, SendDoubleEvent e)
+        {
+            zeroPointValue = e.forceInput;
+        }
+ 
     }
 }
