@@ -121,11 +121,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\ADConverter.cs" />
-    <Compile Include="IncomingVoltageEvent.cs" />
     <Compile Include="Interfaces\ISaveData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\SaveDataInternal.cs" />
-    <Compile Include="SaveDataExternal.cs" />
+    <Compile Include="Classes\SaveDataExternal.cs" />
     <EmbeddedResource Include="Properties\MaEMMDataAccessLogic.rd.xml" />
   </ItemGroup>
   <ItemGroup>

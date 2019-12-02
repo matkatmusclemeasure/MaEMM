@@ -11,6 +11,7 @@ namespace MaEMMDataAccessLogic
         public void save(string saveInformation_)
         {
 
+
         }
     }
 }
