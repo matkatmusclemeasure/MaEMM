@@ -13,12 +13,22 @@ namespace MaEMMDataAccessLogic
     {
         private string filename; 
 
-        public void createDirectory(string saveInformation_)
+        public void startSaving(string saveInformation_)
         {
+
             IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
-            myIsolatedStorage.CreateDirectory("TextFilesFolder");
-            filename = "TextFilesFolder\\Samplefile.txt";
-            save(saveInformation_);
+
+            if(!File.Exists("CalibrationFolder"))
+            {
+                myIsolatedStorage.CreateDirectory("CalibrationFolder");
+                filename = "TextFilesFolder\\Samplefile.txt";
+                save(saveInformation_); 
+            }
+            else if (File.Exists("CalibrationFolder"))
+            {
+                filename = "TextFilesFolder\\Samplefile.txt";
+                save(saveInformation_); 
+            }
         }
 
 
@@ -32,6 +42,13 @@ namespace MaEMMDataAccessLogic
                 {
                     writeFile.WriteLine(saveInformation_);
                     // writeFile.Close();
+                }
+            }
+            else if (myIsolatedStorage.FileExists(filename))
+            {
+                using (StreamWriter writeFile = new StreamWriter(new IsolatedStorageFileStream(filename, FileMode.Append, FileAccess.Write, myIsolatedStorage)))
+                {
+                    writeFile.WriteLineAsync(saveInformation_); 
                 }
             }
             //https://stackoverflow.com/questions/34385625/saving-files-on-raspberry-pi-with-windows-iot
