@@ -10,6 +10,10 @@ namespace MaEMMDataAccessLogic
     {
         //void saveDatastring(string dataArranged);
 
-        void save(string saveInformation); 
+        void startSaving(string saveInformation_);
+
+        void save(string saveInformation);
+
+        string getLatestCalibration();
     }
 }

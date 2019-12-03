@@ -71,8 +71,9 @@ namespace MaEMM
 
         private void calibrateB_Click(object sender, RoutedEventArgs e)
         {
-            calibrate.startCalibration(); 
-            calibrationMade = true;
+            calibrate.startCalibration(armLengthTB.Text);
+            //calibrate.startCalibration(); 
+            //calibrationMade = true;
         }
 
         private void strengthCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -80,5 +81,9 @@ namespace MaEMM
             
         }
 
+        private void loadforfunB_Click(object sender, RoutedEventArgs e)
+        {
+            weightOneTB.Text = calibrate.getlatestTest();
+        }
     }
 }

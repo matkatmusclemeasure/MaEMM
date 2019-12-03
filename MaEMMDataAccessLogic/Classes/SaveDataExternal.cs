@@ -9,6 +9,11 @@ namespace MaEMMDataAccessLogic
 {
     class SaveDataExternal : ISaveData
     {
+        public string getLatestCalibration()
+        {
+            throw new NotImplementedException();
+        }
+
         public async void save(string testInformation_)
         {
             StorageFolder UsbDrive = (await Windows.Storage.KnownFolders.RemovableDevices.GetFoldersAsync()).FirstOrDefault();
@@ -26,6 +31,11 @@ namespace MaEMMDataAccessLogic
                     await FileIO.AppendTextAsync(TestDataFile, testInformation_);
                 }
             }
+        }
+
+        public void startSaving(string saveInformation_)
+        {
+            throw new NotImplementedException();
         }
     }
 }

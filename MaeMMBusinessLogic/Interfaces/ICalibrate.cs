@@ -12,6 +12,8 @@ namespace MaeMMBusinessLogic
 
         void enterCalibrationValues(double weight_, double armlength_);
 
-        void startCalibration();
+        void startCalibration(string test);
+
+        string getlatestTest();
     }
 }

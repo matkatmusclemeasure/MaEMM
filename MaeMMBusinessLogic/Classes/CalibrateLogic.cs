@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MaEMMDataAccessLogic;
 
 namespace MaeMMBusinessLogic
 {
@@ -20,10 +21,13 @@ namespace MaeMMBusinessLogic
         private double aSlope;
         private double bIntercept;
 
+        private ISaveData saver;
+
         public CalibrateLogic()
         {
             momentPointsY = new List<double>();
             voltagePointsX = new List<double>();
+            saver = new SaveData();
         }
 
         public double getVoltage(int numberOfMeasurements)
@@ -45,42 +49,47 @@ namespace MaeMMBusinessLogic
             voltagePointsX.Add(voltage);
         }
 
-        public void startCalibration()
+        public void startCalibration(string test)
         {
-            int n = momentPointsY.Count;
-            double sumXY = 0;
-            double sumX = 0;
-            double sumXpower2 = 0;
-            double sumY = 0;
-            int count = 0;
+            saver.startSaving(test);
+            //int n = momentPointsY.Count;
+            //double sumXY = 0;
+            //double sumX = 0;
+            //double sumXpower2 = 0;
+            //double sumY = 0;
+            //int count = 0;
 
-            foreach (var point in voltagePointsX)
-            {
-                sumXY = +(point * momentPointsY[count]);
-                count++;
-            }
+            //foreach (var point in voltagePointsX)
+            //{
+            //    sumXY = +(point * momentPointsY[count]);
+            //    count++;
+            //}
 
-            foreach (var point in voltagePointsX)
-            {
-                sumX = +point;
-            }
+            //foreach (var point in voltagePointsX)
+            //{
+            //    sumX = +point;
+            //}
 
-            foreach (var point in momentPointsY)
-            {
-                sumY = +point;
-            }
+            //foreach (var point in momentPointsY)
+            //{
+            //    sumY = +point;
+            //}
 
-            foreach (var point in voltagePointsX)
-            {
-                sumXpower2 = +(point * point);
-            }
+            //foreach (var point in voltagePointsX)
+            //{
+            //    sumXpower2 = +(point * point);
+            //}
 
-            aSlope = (n * sumXY - (sumX * sumY)) / (sumXpower2 - (sumX * sumX));
-            bIntercept = (1 / n) * (sumY - (aSlope * sumX));
+            //aSlope = (n * sumXY - (sumX * sumY)) / (sumXpower2 - (sumX * sumX));
+            //bIntercept = (1 / n) * (sumY - (aSlope * sumX));
 
             // Til sidst gemmes a og b, kalibreringsværdierne på sd kortet så disse kan læses ind hver gang
             // programmet åbnes.
         }
 
+        public string getlatestTest()
+        {
+            return saver.getLatestCalibration();
+        }
     }
 }
