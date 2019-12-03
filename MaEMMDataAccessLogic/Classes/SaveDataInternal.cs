@@ -21,12 +21,12 @@ namespace MaEMMDataAccessLogic
             if(!File.Exists("CalibrationFolder"))
             {
                 myIsolatedStorage.CreateDirectory("CalibrationFolder");
-                filename = "TextFilesFolder\\Samplefile.txt";
+                filename = "CalibrationFolder\\Calibrations.txt";
                 save(saveInformation_); 
             }
             else if (File.Exists("CalibrationFolder"))
             {
-                filename = "TextFilesFolder\\Samplefile.txt";
+                filename = "CalibrationFolder\\Calibrations.txt";
                 save(saveInformation_); 
             }
         }
@@ -52,6 +52,18 @@ namespace MaEMMDataAccessLogic
                 }
             }
             //https://stackoverflow.com/questions/34385625/saving-files-on-raspberry-pi-with-windows-iot
+        }
+
+        public string getLatestCalibration()
+        {
+            // Load the text block from file
+
+            StreamReader streamReader = new StreamReader(new FileStream(filename, FileMode.Open));
+            string latestCalibration = streamReader.ReadLine(); 
+
+            streamReader.Dispose();
+
+            return latestCalibration;
         }
     }
 }
