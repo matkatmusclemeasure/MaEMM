@@ -11,6 +11,9 @@ using MaEMM.Core.Services;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using MaeMMBusinessLogic;
+using System.Threading;
+using Windows.UI.Xaml;
+using Windows.UI.Core;
 
 namespace MaEMM.Views
 {
@@ -23,6 +26,9 @@ namespace MaEMM.Views
         private List<XYDTO> graphCoordinates; //kat
         private bool firsttime = true;
         private double zeroPointValue;
+        private bool measureRunning = false;
+        private Thread measureThread;
+        private int testcount = 0;
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO;
@@ -38,6 +44,7 @@ namespace MaEMM.Views
             datapresenter_ = new DataPresenter(datacalculator_);
             zeroPointAdjustment_ = new ZeroPointAdjustment(); 
             datapresenter_.sendCoordinate += updateGraph;
+            
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -83,32 +90,47 @@ namespace MaEMM.Views
 
         private void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            measureThread = new Thread(this.measure);
+            measureThread.IsBackground = true;
+            testcount = 0;
             startMeasurementB.IsEnabled = false;
+            measureThread.Start();
+            
+        }
+
+        private void measure()
+        {
             DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 1, informationDTO.strengthLevel);
             datapresenter_.setParameter(DTO);
+            measureRunning = true;
 
-            for (int i = 0; i < 20; i++)
+            while (measureRunning == true)
             {
-                datapresenter_.meassure();
-
+                //datapresenter_.meassure();
+                testcount++;
                 System.Threading.Thread.Sleep(500);
             }
-            startMeasurementB.IsEnabled = true;
+
+            
         }
 
         private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             //this.MuscleForceChart.DataContext = graphCoordinates; //kat 
-            MaxExpDTOP maxDTO = datapresenter_.showResult();
-            muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
-            rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
+            measureRunning = false;
+            muscleForceTB.Text = Convert.ToString(testcount);
+            startMeasurementB.IsEnabled = true;
+
+            //MaxExpDTOP maxDTO = datapresenter_.showResult();
+            //muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
+            //rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
 
 
         }
 
         private void updateGraph(object sender, SendCoordinateEvent e)
-        {
-
+        { 
+            
             //XYDTO xyCoordinates = new XYDTO(e.x, e.y); //kat
 
             //graphCoordinates.Add(xyCoordinates); //kat
