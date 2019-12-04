@@ -11,7 +11,8 @@ namespace MaEMMDataAccessLogic
 {
     public class SaveData : ISaveData
     {
-        private string filename; 
+        private string filename;
+        
 
         public void startSaving(string saveInformation_)
         {

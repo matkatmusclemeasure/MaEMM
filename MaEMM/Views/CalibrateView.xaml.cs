@@ -71,7 +71,9 @@ namespace MaEMM
 
         private void calibrateB_Click(object sender, RoutedEventArgs e)
         {
-            calibrate.startCalibration(armLengthTB.Text);
+            armLengthTB.Text = "Test";
+            calibrate.startCalibration("Test");
+            
             //calibrate.startCalibration(); 
             //calibrationMade = true;
         }

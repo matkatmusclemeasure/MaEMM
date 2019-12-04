@@ -26,12 +26,36 @@
         <TextBox x:Name="weightThreeTB" HorizontalAlignment="Left" Margin="142,245,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
         <TextBlock HorizontalAlignment="Left" Margin="21,309,0,0" Text="Enter weight 4" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Foreground="Black"/>
         <TextBox x:Name="weightFourTB" HorizontalAlignment="Left" Margin="142,302,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.338,0.469" Width="168"/>
-        <Button x:Name ="weight1B" Content="Start" Margin="0,126,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight1B_Click"/>
-        <Button x:Name ="weight2B" Content="Start" Margin="0,184,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight2B_Click"/>
-        <Button x:Name ="weight3B" Content="Start" Margin="0,245,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight3B_Click"/>
-        <Button x:Name ="weight4B" Content="Start" Margin="0,302,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight4B_Click"/>
-        <Button x:Name ="calibrateB" Content="Calibrate" Margin="514,302,0,0" VerticalAlignment="Top" Width="154" Click="calibrateB_Click"/>
-        <Button x:Name="loadforfunB" Content="LOAD FOR FUN" Margin="519,216,0,0" VerticalAlignment="Top" Height="45" Width="165" Click="loadforfunB_Click"/>
+        <Button x:Name ="weight1B" Content="Start" Margin="0,126,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight1B_Click" Background="#FFEB9494">
+            <Button.BorderBrush>
+                <AcrylicBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name ="weight2B" Content="Start" Margin="0,184,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight2B_Click" Background="#FFEB9494">
+            <Button.BorderBrush>
+                <AcrylicBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name ="weight3B" Content="Start" Margin="0,245,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight3B_Click" Background="#FFEB9494">
+            <Button.BorderBrush>
+                <AcrylicBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name ="weight4B" Content="Start" Margin="0,302,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="89" Click="weight4B_Click" Background="#FFEB9494">
+            <Button.BorderBrush>
+                <AcrylicBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name ="calibrateB" Content="Calibrate" Margin="514,302,0,0" VerticalAlignment="Top" Width="154" Click="calibrateB_Click" Background="#FFEB9494">
+            <Button.BorderBrush>
+                <AcrylicBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button x:Name="loadforfunB" Content="LOAD FOR FUN" Margin="519,216,0,0" VerticalAlignment="Top" Height="45" Width="165" Click="loadforfunB_Click" Background="#FFEB9494">
+            <Button.BorderBrush>
+                <AcrylicBrush/>
+            </Button.BorderBrush>
+        </Button>
 
     </Grid>
 </Page>

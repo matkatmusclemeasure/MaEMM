@@ -92,7 +92,7 @@ namespace MaEMM.Views
         {
             measureThread = new Thread(this.measure);
             measureThread.IsBackground = true;
-            testcount = 0;
+            //testcount = 0;
             startMeasurementB.IsEnabled = false;
             measureThread.Start();
             
@@ -106,9 +106,9 @@ namespace MaEMM.Views
 
             while (measureRunning == true)
             {
-                //datapresenter_.meassure();
-                testcount++;
-                System.Threading.Thread.Sleep(500);
+                datapresenter_.meassure();
+                //testcount++;
+                System.Threading.Thread.Sleep(100);
             }
 
             
@@ -118,12 +118,12 @@ namespace MaEMM.Views
         {
             //this.MuscleForceChart.DataContext = graphCoordinates; //kat 
             measureRunning = false;
-            muscleForceTB.Text = Convert.ToString(testcount);
+            //muscleForceTB.Text = Convert.ToString(testcount);
             startMeasurementB.IsEnabled = true;
 
-            //MaxExpDTOP maxDTO = datapresenter_.showResult();
-            //muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
-            //rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
+            MaxExpDTOP maxDTO = datapresenter_.showResult();
+            muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
+            rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
 
 
         }
