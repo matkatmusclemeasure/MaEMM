@@ -125,6 +125,7 @@
     <Compile Include="Classes\DataCalculator.cs" />
     <Compile Include="Classes\DataPresenter.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
+    <Compile Include="DownSampling.cs" />
     <Compile Include="DTO\DataPCParameterDTO.cs" />
     <Compile Include="DTO\InformationDTO.cs" />
     <Compile Include="Interfaces\IArrangeData.cs" />
