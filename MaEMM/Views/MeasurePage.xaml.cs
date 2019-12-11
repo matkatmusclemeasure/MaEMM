@@ -23,7 +23,7 @@ namespace MaEMM.Views
         private IDataCalculator datacalculator_;
         private IDataProcessor dataprocessor_;
         private IZeroPointAdjustment zeroPointAdjustment_; 
-        private List<XYDTO> graphCoordinates; //kat
+        private List<XYDTO> graphCoordinates; 
         private bool firsttime = true;
         private double zeroPointValue;
         private bool measureRunning = false;
