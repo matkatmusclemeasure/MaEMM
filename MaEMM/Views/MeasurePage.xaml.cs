@@ -14,6 +14,8 @@ using MaeMMBusinessLogic;
 using System.Threading;
 using Windows.UI.Xaml;
 using Windows.UI.Core;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 namespace MaEMM.Views
 {
@@ -100,7 +102,8 @@ namespace MaEMM.Views
 
         private void measure()
         {
-            DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 1, informationDTO.strengthLevel);
+            DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 20, informationDTO.strengthLevel);
+            datapresenter_.resetList();
             datapresenter_.setParameter(DTO);
             measureRunning = true;
 
@@ -108,7 +111,7 @@ namespace MaEMM.Views
             {
                 datapresenter_.meassure();
                 //testcount++;
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(1);
             }
 
             
@@ -162,7 +165,11 @@ namespace MaEMM.Views
 
         private void zeroPointAdjustmentB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            zeroPointAdjustment_.sendDouble += setZeroPointValue;
+            datapresenter_.zeroPointAdjust();
+
+            Color color = new Color();
+            color = Colors.Green;
+            zeroPointAdjustmentB.Background = new SolidColorBrush(color);
         }
 
         private void setZeroPointValue(object sender, SendDoubleEvent e)

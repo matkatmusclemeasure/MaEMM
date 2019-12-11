@@ -10,21 +10,55 @@ namespace MaeMMBusinessLogic
     {
         private double maxMuscle = 0;
         private double expMuscle = 0;
-        private List<double> muscleForce;
+        private List<XYDTO> muscleForce;
         public event EventHandler<SendCoordinateEvent> sendCoordinate;
         private IDataCalculator datacalculator;
+        private double zeroPointValue =0;
+        private List<double> zeroPointValues;
+        private bool zeroPointAdjusting = false;
 
         public DataPresenter(IDataCalculator datacalc)
         {
             datacalculator = datacalc;
+            
             datacalculator.sendCoordinate += sendCoordinates;
-            muscleForce = new List<double>();
+            muscleForce = new List<XYDTO>();
+        }
+
+        public void resetList()
+        {
+            muscleForce.Clear();
         }
 
         public void meassure()
         {
            
             datacalculator.meassure();
+        }
+
+        public void zeroPointAdjust()
+        {
+            zeroPointValues = new List<double>();
+            double zeroPointSum = 0;
+
+            zeroPointAdjusting = true;
+            
+            for (int i = 0; i < 300; i++)
+            {
+                datacalculator.meassure();
+                System.Threading.Thread.Sleep(10);
+                
+            }
+
+            zeroPointAdjusting = false;
+
+            foreach (var zeropoint in zeroPointValues)
+            {
+                zeroPointSum += zeropoint;
+            }
+
+            zeroPointValue = zeroPointSum / zeroPointValues.Count;
+
         }
 
         public void sendCoordinates(object sender, SendCoordinateEvent e)
@@ -44,16 +78,96 @@ namespace MaeMMBusinessLogic
             //    //expMuscle = slope
             //}
             ////Ovenstående bør måske overvejes at skulle gøres i en anden selvstændig tråd, snak med Michael
+            if(zeroPointAdjusting == false)
+            {
+                muscleForce.Add(new XYDTO(e.x, e.y-zeroPointValue)); 
+                SendCoordinateEvent SCevent = new SendCoordinateEvent(e.x, e.y-zeroPointValue);
+                sendCoordinate?.Invoke(this, SCevent);
+            }
+            else if(zeroPointAdjusting == true)
+            {
+                zeroPointValues.Add(e.y);
+            }
             
-            muscleForce.Add(e.y); //TESTER brug ovenstående rigtigt
-            SendCoordinateEvent SCevent = new SendCoordinateEvent(e.x, e.y);
-            sendCoordinate?.Invoke(this, SCevent);
         }
 
         public MaxExpDTOP showResult()
         {
-            maxMuscle = muscleForce.Average();
-            expMuscle = muscleForce.Count();
+            List<double> MaxList = new List<double>();
+            List<XYDTO> expList = new List<XYDTO>();
+
+            for(int i =0; i<muscleForce.Count;i++)
+            {
+                //if(MaxList.Count>=10)
+                //{
+                //    MaxList.RemoveAt(0);
+                //    MaxList.Add(muscleForce[i].Y);
+
+                //    if(MaxList.Average()>maxMuscle)
+                //    {
+                //        maxMuscle = MaxList.Average();
+                //    }
+                //}
+                //else
+                //{
+                //    MaxList.Add(muscleForce[i].Y);
+                //}
+
+                if (maxMuscle < muscleForce[i].Y)
+                {
+                    maxMuscle = muscleForce[i].Y;
+                }
+
+                if(expList.Count>=50)
+                {
+                    expList.RemoveAt(0);
+                    expList.Add(new XYDTO(muscleForce[i].X, muscleForce[i].Y));
+
+                    double sumXY = 0;
+                    double sumX = 0;
+                    double sumXpower2 = 0;
+                    double sumY = 0;
+                    int count = 0;
+
+                    foreach (var point in expList)
+                    {
+                        sumXY += point.X * point.Y;
+                    
+                    }
+
+                    foreach (var point in expList)
+                    {
+                        sumX += point.X;
+                    }
+
+                    foreach (var point in expList)
+                    {
+                        sumY += point.Y;
+                    }
+
+                    foreach (var point in expList)
+                    {
+                        sumXpower2 += point.X*point.X;
+                    }
+
+                    double Slope = (sumXY-(sumX*sumY))/(sumXpower2-(sumX*sumX));
+
+                    if(Slope>expMuscle)
+                    {
+                        expMuscle = Slope;
+                    }
+                }
+                else
+                {
+                    expList.Add(new XYDTO(muscleForce[i].X, muscleForce[i].Y));
+                }
+
+                
+            }
+
+
+            //maxMuscle = muscleForce.Average();
+            //expMuscle = muscleForce.Count();
 
             MaxExpDTOP MaxDTO = new MaxExpDTOP(maxMuscle, expMuscle);
             return MaxDTO;

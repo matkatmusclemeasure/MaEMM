@@ -119,7 +119,7 @@ namespace MaEMMDataAccessLogic
             device = await I2cDevice.FromIdAsync(devices[0].Id, settings);
         }
 
-        public ADC(byte deviceAddress = ADS1015_ADDRESS, UInt16 gain = ADS1015_REG_CONFIG_PGA_2_048V)
+        public ADC(byte deviceAddress = ADS1015_ADDRESS, UInt16 gain = ADS1015_REG_CONFIG_PGA_4_096V)
         {
             _deviceAddress = deviceAddress;
             _gain = gain;

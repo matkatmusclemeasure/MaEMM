@@ -32,15 +32,15 @@ namespace MaeMMBusinessLogic
             //count++;
         }
 
-        public void procesVoltage(double voltage)
+        public void procesVoltage(double bit)
         {
 
-            double voltage_ = (0.001 * voltage - 2.048);
+            double voltage_ = (0.002*bit);
 
             //double voltage_ = voltage;
 
-            double torque =0;
-            //switch(strengthLevel)
+            //double torque =0;
+            //switch (strengthLevel)
             //{
             //    case "Reduced strength":
             //        torque = 13784 * voltage_ + (2 * Math.Pow(10, -8));

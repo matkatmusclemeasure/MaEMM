@@ -17,7 +17,12 @@ namespace MaeMMBusinessLogic
         void meassure();
 
         void setParameter(DataPCParameterDTO PDTO);
-        
+
+        void resetList();
+
+        void zeroPointAdjust();
+
+
 
     }
 }
