@@ -30,9 +30,10 @@ namespace MaEMM.Views
         private Thread measureThread;
         private int testcount = 0;
         private List<double> coordinateDownSampling;
-        private List<double> downsampledCoordinate;
-        private double DSCoordinateSum;
-        private double DSCoordinate; 
+        public ObservableCollection<XYDTO> downSampledCoordinate { get; } = new ObservableCollection<XYDTO>();
+        private double DSCoordinateSum = 0;
+        private double DSCoordinate;
+        private XYDTO downsampledXY; 
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO;
@@ -179,18 +180,24 @@ namespace MaEMM.Views
 
             if (coordinateDownSampling.Count < 17)
             {
-                coordinateDownSampling.Add(e.x);
+                coordinateDownSampling.Add(e.y);
             }
             else if (coordinateDownSampling.Count > 17 )
             {
-                for (int i = 0; i < 17; i++)
+                for (int i = 0; i <= 17; i++)
                 {
                     DSCoordinateSum += coordinateDownSampling[i];
                 }
 
                 DSCoordinate = DSCoordinateSum / 17;
-                downsampledCoordinate.Add(DSCoordinate); 
-                coordinateDownSampling.Clear(); 
+
+                downsampledXY.X = e.x; //ved ikke lige hvordan den skal stige med 17 hver gang 
+                downsampledXY.Y = DSCoordinate;
+
+                downSampledCoordinate.Add(downsampledXY);
+
+                coordinateDownSampling.Clear();
+                DSCoordinateSum = 0;
             }
         }
  
