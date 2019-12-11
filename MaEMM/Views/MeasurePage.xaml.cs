@@ -29,6 +29,10 @@ namespace MaEMM.Views
         private bool measureRunning = false;
         private Thread measureThread;
         private int testcount = 0;
+        private List<double> coordinateDownSampling;
+        private List<double> downsampledCoordinate;
+        private double DSCoordinateSum;
+        private double DSCoordinate; 
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO;
@@ -168,6 +172,26 @@ namespace MaEMM.Views
         private void setZeroPointValue(object sender, SendDoubleEvent e)
         {
             zeroPointValue = e.forceInput;
+        }
+
+        private void sampleDown(object sender, SendCoordinateEvent e)
+        {
+
+            if (coordinateDownSampling.Count < 17)
+            {
+                coordinateDownSampling.Add(e.x);
+            }
+            else if (coordinateDownSampling.Count > 17 )
+            {
+                for (int i = 0; i < 17; i++)
+                {
+                    DSCoordinateSum += coordinateDownSampling[i];
+                }
+
+                DSCoordinate = DSCoordinateSum / 17;
+                downsampledCoordinate.Add(DSCoordinate); 
+                coordinateDownSampling.Clear(); 
+            }
         }
  
     }
