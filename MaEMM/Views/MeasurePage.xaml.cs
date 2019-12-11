@@ -33,7 +33,8 @@ namespace MaEMM.Views
         public ObservableCollection<XYDTO> downSampledCoordinate { get; } = new ObservableCollection<XYDTO>();
         private double DSCoordinateSum = 0;
         private double DSCoordinate;
-        private XYDTO downsampledXY; 
+        private XYDTO downsampledXY;
+        private double timeCount; 
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO;
@@ -105,6 +106,7 @@ namespace MaEMM.Views
 
         private void measure()
         {
+            timeCount = 0; 
             DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 1, informationDTO.strengthLevel);
             datapresenter_.setParameter(DTO);
             measureRunning = true;
@@ -130,7 +132,7 @@ namespace MaEMM.Views
             //muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
             //rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
 
-
+            timeCount = 0; 
         }
 
         private void updateGraph(object sender, SendCoordinateEvent e)
@@ -154,7 +156,7 @@ namespace MaEMM.Views
 
         private void resetMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            List<XYDTO> graphCoordinates = new List<XYDTO>();  //kat
+            List<XYDTO> graphCoordinates = new List<XYDTO>();
             graphCoordinates.Add(new XYDTO(1, 2));
             graphCoordinates.Add(new XYDTO(2, 3));
             graphCoordinates.Add(new XYDTO(3, 4));
@@ -162,6 +164,8 @@ namespace MaEMM.Views
             graphCoordinates.Add(new XYDTO(5, 1));
 
             this.MuscleForceChart.DataContext = graphCoordinates;
+
+            timeCount = 0; 
 
         }
 
@@ -182,16 +186,18 @@ namespace MaEMM.Views
             {
                 coordinateDownSampling.Add(e.y);
             }
-            else if (coordinateDownSampling.Count > 17 )
+            else if (coordinateDownSampling.Count >= 17 )
             {
-                for (int i = 0; i <= 17; i++)
+                timeCount += 0.017;
+
+                for (int i = 0; i < 17; i++)
                 {
                     DSCoordinateSum += coordinateDownSampling[i];
                 }
 
                 DSCoordinate = DSCoordinateSum / 17;
 
-                downsampledXY.X = e.x; //ved ikke lige hvordan den skal stige med 17 hver gang 
+                downsampledXY.X = timeCount; 
                 downsampledXY.Y = DSCoordinate;
 
                 downSampledCoordinate.Add(downsampledXY);
