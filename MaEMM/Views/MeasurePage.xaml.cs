@@ -16,6 +16,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
+using System.Threading.Tasks;
 
 namespace MaEMM.Views
 {
@@ -32,10 +33,10 @@ namespace MaEMM.Views
         private Thread measureThread;
         private int testcount = 0;
         private List<double> coordinateDownSampling;
-        public ObservableCollection<XYDTO> downSampledCoordinate { get; } = new ObservableCollection<XYDTO>();
+        public ObservableCollection<XYDTO> downSampledCoordinate = new ObservableCollection<XYDTO>();
         private double DSCoordinateSum = 0;
         private double DSCoordinate;
-        private XYDTO downsampledXY;
+        //private XYDTO downsampledXY;
         private double timeCount; 
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
@@ -50,9 +51,12 @@ namespace MaEMM.Views
             dataprocessor_ = new DataProcessor();
             datacalculator_ = new DataCalculator(dataprocessor_);
             datapresenter_ = new DataPresenter(datacalculator_);
-            zeroPointAdjustment_ = new ZeroPointAdjustment(); 
-            datapresenter_.sendCoordinate += updateGraph;
-            
+            zeroPointAdjustment_ = new ZeroPointAdjustment();
+            //datapresenter_.sendCoordinate += updateGraph;
+            coordinateDownSampling = new List<double>();
+            datapresenter_.sendCoordinate += sampleDown;
+            MuscleForceChart.DataContext = downSampledCoordinate;
+
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -98,6 +102,10 @@ namespace MaEMM.Views
 
         private void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            downSampledCoordinate.Clear();
+            DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
+            datapresenter_.setParameter(DTO);
+
             measureThread = new Thread(this.measure);
             measureThread.IsBackground = true;
             //testcount = 0;
@@ -108,11 +116,9 @@ namespace MaEMM.Views
 
         private void measure()
         {
-            timeCount = 0; 
-            DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 1, informationDTO.strengthLevel);
-            DataPCParameterDTO DTO = new DataPCParameterDTO(/*Convert.ToDouble(armlengthTB.Text)*/ 20, informationDTO.strengthLevel);
+            timeCount = 0;
             datapresenter_.resetList();
-            datapresenter_.setParameter(DTO);
+           
             measureRunning = true;
 
             while (measureRunning == true)
@@ -133,8 +139,8 @@ namespace MaEMM.Views
             startMeasurementB.IsEnabled = true;
 
             MaxExpDTOP maxDTO = datapresenter_.showResult();
-            muscleForceTB.Text = Convert.ToString(maxDTO.maxMuscle);
-            rateOfForceDevTB.Text = Convert.ToString(maxDTO.expMuscle);
+            muscleForceTB.Text = Convert.ToString(Math.Round(maxDTO.maxMuscle,2));
+            rateOfForceDevTB.Text = Convert.ToString(Math.Round(maxDTO.expMuscle,2));
 
             timeCount = 0; 
         }
@@ -187,6 +193,18 @@ namespace MaEMM.Views
             zeroPointValue = e.forceInput;
         }
 
+        void AddData(XYDTO data)
+        {
+            // Updates to the dataDoubles collection must be done on the UI thread.
+            // Otherwise the application will throw an exception, because only the UI
+            // thread is allowed to modify UI components and the modification of the
+            // collection will result in a UI update.
+            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                downSampledCoordinate.Add(data);
+            });
+        }
+
         private void sampleDown(object sender, SendCoordinateEvent e)
         {
 
@@ -205,10 +223,18 @@ namespace MaEMM.Views
 
                 DSCoordinate = DSCoordinateSum / 17;
 
-                downsampledXY.X = timeCount; 
-                downsampledXY.Y = DSCoordinate;
+                //downsampledXY.X = timeCount; 
+                //downsampledXY.Y = DSCoordinate;
 
-                downSampledCoordinate.Add(downsampledXY);
+                Task updateTask = new Task(async () =>
+                {
+
+                    AddData(new XYDTO(timeCount, DSCoordinate));
+
+                });
+                updateTask.Start();
+
+                //downSampledCoordinate.Add(new XYDTO(timeCount, DSCoordinate));
 
                 coordinateDownSampling.Clear();
                 DSCoordinateSum = 0;

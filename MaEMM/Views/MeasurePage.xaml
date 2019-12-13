@@ -26,7 +26,7 @@
         <!--<TextBlock HorizontalAlignment="Left" Text ="Nm/s" Margin="675,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="38" Foreground="#FF040404"/>-->
         <Image x:Name="backB" HorizontalAlignment="Left" Height="29" Margin="667,10,0,0" VerticalAlignment="Top" Width="61" Source="/Assets/ToBackKnap.PNG" Tapped="backB_Tapped"/>
 
-        <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,9" HorizontalAlignment="Left" Width="539" Background="Chartreuse" Foreground="Aquamarine">
+        <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,9" HorizontalAlignment="Left" Width="539" Background="Red" Foreground="Aquamarine">
             <tc:RadCartesianChart.HorizontalAxis>
                 <tc:LinearAxis/>
             </tc:RadCartesianChart.HorizontalAxis>

@@ -38,11 +38,11 @@ namespace MaeMMBusinessLogic
 
             double torque = e.forceInput;
 
-            //double force = torque / (armLength - 5);
+            double force = torque / (armLength - 0.05);
 
-            //double muscleTorque = force * armLength;
+            double muscleTorque = force * armLength;
 
-            double muscleTorque = torque; //TEST, SKAL BRUGE DEN OVENFOR
+            //double muscleTorque = torque; //TEST, SKAL BRUGE DEN OVENFOR
 
             timecount += 0.001;
 

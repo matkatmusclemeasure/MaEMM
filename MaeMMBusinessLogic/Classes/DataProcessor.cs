@@ -13,6 +13,7 @@ namespace MaeMMBusinessLogic
         //Finder vha. spænding momentet ved Strain Gauge ud fra de værdier der findes fra kalibrering 
         //Momentet sendes videre til calculator 
         int count = 1;
+        private List<int> testList = new List<int>();
 
         private ADC adConverter;
 
@@ -21,6 +22,7 @@ namespace MaeMMBusinessLogic
 
         public DataProcessor()
         {
+
             adConverter = new ADC();
         }
 
@@ -28,6 +30,16 @@ namespace MaeMMBusinessLogic
         {
             procesVoltage(adConverter.readADC_Differential_0_1());
 
+            //if (testList.Count < 6000)
+            //{
+            //    testList.Add(1);
+            //}
+            //else
+            //{
+            //    testList.Add(1);
+            //}
+            
+            //procesVoltage(1000);
             //procesVoltage(count);
             //count++;
         }
@@ -39,22 +51,22 @@ namespace MaeMMBusinessLogic
 
             //double voltage_ = voltage;
 
-            //double torque =0;
-            //switch (strengthLevel)
-            //{
-            //    case "Reduced strength":
-            //        torque = 13784 * voltage_ + (2 * Math.Pow(10, -8));
-            //        break;
-            //    case "Medium strength":
-            //        torque = 25332 * voltage_ + (2 * Math.Pow(10, -8));
-            //        break;
-            //    case "Full strength":
-            //        torque = 37491 * voltage_ + (2 * Math.Pow(10, -8));
-            //        break;
+            double torque = 0;
+            switch (strengthLevel)
+            {
+                case "Reduced strength":
+                    torque = 15.32 * voltage_ + (Math.Pow(10, -12));
+                    break;
+                case "Medium strength":
+                    torque = 28.16 * voltage_ + (2 * Math.Pow(10, -12));
+                    break;
+                case "Full strength":
+                    torque = 41.68 * voltage_ + (Math.Pow(10, -12));
+                    break;
 
-            //}
+            }
 
-            SendDoubleEvent doubleEvent = new SendDoubleEvent(voltage_);
+            SendDoubleEvent doubleEvent = new SendDoubleEvent(torque);
             sendDouble?.Invoke(this, doubleEvent);
         }
 
