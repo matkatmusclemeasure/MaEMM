@@ -7,44 +7,44 @@ using MaEMMDataAccessLogic;
 
 namespace MaeMMBusinessLogic
 {
-    public class ZeroPointAdjustment : IZeroPointAdjustment
+    public class ZeroPointAdjustment 
     {
-        IDataProcessor dataprocessor;
-        ADC adc;
-        List<double> zeroPointValues;
-        public event EventHandler<SendDoubleEvent> sendDouble;
+        //IDataProcessor dataprocessor;
+        //ADC adc;
+        //List<double> zeroPointValues;
+        //public event EventHandler<SendDoubleEvent> sendDouble;
 
-        public ZeroPointAdjustment()
-        {
-            dataprocessor = new DataProcessor();
-            adc = new ADC();
-            zeroPointValues = new List<double>();
-            dataprocessor.sendDouble += zeroPointAdjust; 
-        }
+        //public ZeroPointAdjustment()
+        //{
+        //    //dataprocessor = new DataProcessor();
+        //    adc = new ADC();
+        //    zeroPointValues = new List<double>();
+        //    dataprocessor.sendDouble += zeroPointAdjust; 
+        //}
 
-        public void zeroPointAdjust(object sender, SendDoubleEvent e)
-        {
-            int count = 100;
-            double zeroPointValue = 0;
-            double zeroPointSum = 0;
+        //public void zeroPointAdjust(object sender, SendDoubleEvent e)
+        //{
+        //    int count = 100;
+        //    double zeroPointValue = 0;
+        //    double zeroPointSum = 0;
 
-            for (int i = 0; i < count; i++)
-            {
-                zeroPointValue = e.forceInput;
-                System.Threading.Thread.Sleep(50);
-                zeroPointValues.Add(zeroPointValue);
-            }
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        zeroPointValue = e.forceInput;
+        //        System.Threading.Thread.Sleep(50);
+        //        zeroPointValues.Add(zeroPointValue);
+        //    }
 
-            foreach (var zeropoint in zeroPointValues)
-            {
-                zeroPointSum =+ zeropoint; 
-            }
+        //    foreach (var zeropoint in zeroPointValues)
+        //    {
+        //        zeroPointSum =+ zeropoint; 
+        //    }
 
-            double zeroPointAdjustmentValue = zeroPointSum / zeroPointValues.Count;
+        //    double zeroPointAdjustmentValue = zeroPointSum / zeroPointValues.Count;
 
-            SendDoubleEvent doubleEvent = new SendDoubleEvent(zeroPointAdjustmentValue);
-            sendDouble?.Invoke(this, doubleEvent);
-        }
+        //    SendDoubleEvent doubleEvent = new SendDoubleEvent(zeroPointAdjustmentValue);
+        //    sendDouble?.Invoke(this, doubleEvent);
+        //}
 
     }
 }

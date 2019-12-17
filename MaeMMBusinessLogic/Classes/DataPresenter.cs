@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,27 +31,26 @@ namespace MaeMMBusinessLogic
             muscleForce.Clear();
         }
 
-        public void meassure()
+        public void meassure(BlockingCollection<int> BC)
         {
            
-            datacalculator.meassure();
+            datacalculator.meassure(BC);
         }
 
-        public void zeroPointAdjust()
+        public void zeroPointAdjust(BlockingCollection<int> BC)
         {
+            zeroPointAdjusting = true;
+
+            datacalculator.meassure(BC);
+
+        }
+
+        public void getZeroPointAdjustment()
+        {
+            zeroPointAdjusting = false;
+
             zeroPointValues = new List<double>();
             double zeroPointSum = 0;
-
-            zeroPointAdjusting = true;
-            
-            for (int i = 0; i < 300; i++)
-            {
-                datacalculator.meassure();
-                System.Threading.Thread.Sleep(10);
-                
-            }
-
-            zeroPointAdjusting = false;
 
             foreach (var zeropoint in zeroPointValues)
             {
@@ -58,7 +58,6 @@ namespace MaeMMBusinessLogic
             }
 
             zeroPointValue = zeroPointSum / zeroPointValues.Count;
-
         }
 
         public void sendCoordinates(object sender, SendCoordinateEvent e)
@@ -86,7 +85,15 @@ namespace MaeMMBusinessLogic
             }
             else if(zeroPointAdjusting == true)
             {
-                zeroPointValues.Add(e.y);
+                if(zeroPointValues.Count == 300)
+                {
+                    getZeroPointAdjustment();
+                }
+                else
+                {
+                    zeroPointValues.Add(e.y);
+                }
+                
             }
             
         }

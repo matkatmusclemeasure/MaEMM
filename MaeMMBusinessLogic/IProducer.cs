@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace MaeMMBusinessLogic
 {
-    public interface IDataProcessor
+    public interface IProducer
     {
-        event EventHandler<SendCoordinateEvent> sendCoordinate;
+        void measure();
 
-        void procesVoltage();
+        void stopMeasure();
 
         void startMeasure(BlockingCollection<int> BC);
 
-        void setParameter(DataPCParameterDTO PDTO);
-      
-
+        void zeroPointAdjust(BlockingCollection<int> BC);
     }
 }

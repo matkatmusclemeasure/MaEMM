@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,15 +15,15 @@ namespace MaeMMBusinessLogic
 
         void sendCoordinates(object sender, SendCoordinateEvent e);
 
-        void meassure();
+        void meassure(BlockingCollection<int> BC);
 
         void setParameter(DataPCParameterDTO PDTO);
 
         void resetList();
 
-        void zeroPointAdjust();
+        void zeroPointAdjust(BlockingCollection<int> BC);
 
-
+        void getZeroPointAdjustment();
 
     }
 }

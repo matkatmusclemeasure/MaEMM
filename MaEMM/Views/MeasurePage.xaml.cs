@@ -17,6 +17,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace MaEMM.Views
 {
@@ -25,17 +26,19 @@ namespace MaEMM.Views
         private IDataPresenter datapresenter_;
         private IDataCalculator datacalculator_;
         private IDataProcessor dataprocessor_;
-        private IZeroPointAdjustment zeroPointAdjustment_; 
+        //private IZeroPointAdjustment zeroPointAdjustment_;
+        private IProducer producer_;
         private List<XYDTO> graphCoordinates; 
         private bool firsttime = true;
         private double zeroPointValue;
         private bool measureRunning = false;
-        private Thread measureThread;
+        //private Thread measureThread;
         private int testcount = 0;
         private List<double> coordinateDownSampling;
         public ObservableCollection<XYDTO> downSampledCoordinate = new ObservableCollection<XYDTO>();
         private double DSCoordinateSum = 0;
         private double DSCoordinate;
+        private BlockingCollection<int> BC_;
         //private XYDTO downsampledXY;
         private double timeCount; 
 
@@ -48,10 +51,12 @@ namespace MaEMM.Views
         {
             InitializeComponent();
             graphCoordinates = new List<XYDTO>(); //kat
-            dataprocessor_ = new DataProcessor();
+            BC_ = new BlockingCollection<int>();
+            producer_ = new producer(BC_);
+            dataprocessor_ = new DataProcessor(BC_);
             datacalculator_ = new DataCalculator(dataprocessor_);
             datapresenter_ = new DataPresenter(datacalculator_);
-            zeroPointAdjustment_ = new ZeroPointAdjustment();
+            //zeroPointAdjustment_ = new ZeroPointAdjustment();
             //datapresenter_.sendCoordinate += updateGraph;
             coordinateDownSampling = new List<double>();
             datapresenter_.sendCoordinate += sampleDown;
@@ -106,37 +111,44 @@ namespace MaEMM.Views
             DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
             datapresenter_.setParameter(DTO);
 
-            measureThread = new Thread(this.measure);
-            measureThread.IsBackground = true;
-            //testcount = 0;
-            startMeasurementB.IsEnabled = false;
-            measureThread.Start();
+            BC_ = new BlockingCollection<int>();
+
+            producer_.startMeasure(BC_);
+            datapresenter_.meassure(BC_);
+
+            //measureThread = new Thread(this.measure);
+            //measureThread.IsBackground = true;
+            ////testcount = 0;
+            //startMeasurementB.IsEnabled = false;
+            //measureThread.Start();
             
         }
 
-        private void measure()
-        {
-            timeCount = 0;
-            datapresenter_.resetList();
+        //private void measure()
+        //{
+        //    timeCount = 0;
+        //    datapresenter_.resetList();
            
-            measureRunning = true;
+        //    measureRunning = true;
 
-            while (measureRunning == true)
-            {
-                datapresenter_.meassure();
-                //testcount++;
-                System.Threading.Thread.Sleep(1);
-            }
+        //    while (measureRunning == true)
+        //    {
+        //        datapresenter_.meassure();
+        //        //testcount++;
+        //        System.Threading.Thread.Sleep(1);
+        //    }
 
             
-        }
+        //}
 
         private void stopMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             //this.MuscleForceChart.DataContext = graphCoordinates; //kat 
-            measureRunning = false;
+            //measureRunning = false;
             //muscleForceTB.Text = Convert.ToString(testcount);
-            startMeasurementB.IsEnabled = true;
+            //startMeasurementB.IsEnabled = true;
+
+            producer_.stopMeasure();
 
             MaxExpDTOP maxDTO = datapresenter_.showResult();
             muscleForceTB.Text = Convert.ToString(Math.Round(maxDTO.maxMuscle,2));
@@ -181,7 +193,11 @@ namespace MaEMM.Views
 
         private void zeroPointAdjustmentB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            datapresenter_.zeroPointAdjust();
+            BC_ = new BlockingCollection<int>();
+
+            producer_.zeroPointAdjust(BC_);
+
+            datapresenter_.zeroPointAdjust(BC_);
 
             Color color = new Color();
             color = Colors.Green;
@@ -212,7 +228,7 @@ namespace MaEMM.Views
             {
                 coordinateDownSampling.Add(e.y);
             }
-            else if (coordinateDownSampling.Count >= 17 )
+            else if (coordinateDownSampling.Count >= 17)
             {
                 timeCount += 0.017;
 
