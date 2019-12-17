@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
+using Windows.UI.Popups;
 
 namespace MaEMM.Views
 {
@@ -105,17 +106,27 @@ namespace MaEMM.Views
             this.Frame.Navigate(typeof(Save), informationDTO);
         }
 
-        private void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void startMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            downSampledCoordinate.Clear();
-            DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
-            datapresenter_.setParameter(DTO);
+            try
+            {
+                DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
+                datapresenter_.setParameter(DTO);
 
-            BC_ = new BlockingCollection<int>();
+                downSampledCoordinate.Clear();
 
-            producer_.startMeasure(BC_);
-            datapresenter_.meassure(BC_);
+                BC_ = new BlockingCollection<int>();
 
+                producer_.startMeasure(BC_);
+                datapresenter_.meassure(BC_);
+            }
+            catch(Exception exc)
+            {
+                var dialog = new MessageDialog("Enter real length");
+                await dialog.ShowAsync();
+            }
+
+            
             //measureThread = new Thread(this.measure);
             //measureThread.IsBackground = true;
             ////testcount = 0;
@@ -191,17 +202,30 @@ namespace MaEMM.Views
 
         }
 
-        private void zeroPointAdjustmentB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void zeroPointAdjustmentB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            BC_ = new BlockingCollection<int>();
+            try
+            {
+                DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
 
-            producer_.zeroPointAdjust(BC_);
+                BC_ = new BlockingCollection<int>();
 
-            datapresenter_.zeroPointAdjust(BC_);
+                datapresenter_.setParameter(DTO);
 
-            Color color = new Color();
-            color = Colors.Green;
-            zeroPointAdjustmentB.Background = new SolidColorBrush(color);
+                producer_.zeroPointAdjust(BC_);
+
+                datapresenter_.zeroPointAdjust(BC_);
+
+                Color color = new Color();
+                color = Colors.Green;
+                zeroPointAdjustmentB.Background = new SolidColorBrush(color);
+            }
+            catch(Exception exc)
+            {
+                var dialog = new MessageDialog("Enter real length");
+                await dialog.ShowAsync();
+            }
+            
         }
 
         private void setZeroPointValue(object sender, SendDoubleEvent e)

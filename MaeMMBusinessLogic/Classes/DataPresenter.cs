@@ -40,6 +40,7 @@ namespace MaeMMBusinessLogic
         public void zeroPointAdjust(BlockingCollection<int> BC)
         {
             zeroPointAdjusting = true;
+            zeroPointValues = new List<double>();
 
             datacalculator.meassure(BC);
 
@@ -49,7 +50,6 @@ namespace MaeMMBusinessLogic
         {
             zeroPointAdjusting = false;
 
-            zeroPointValues = new List<double>();
             double zeroPointSum = 0;
 
             foreach (var zeropoint in zeroPointValues)
