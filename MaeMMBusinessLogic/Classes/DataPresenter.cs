@@ -100,10 +100,9 @@ namespace MaeMMBusinessLogic
 
         public MaxExpDTOP showResult()
         {
-            List<double> MaxList = new List<double>();
             List<XYDTO> expList = new List<XYDTO>();
 
-            for(int i =0; i<muscleForce.Count;i++)
+            for(int i =0; i< muscleForce.Count; i++)
             {
                 //if(MaxList.Count>=10)
                 //{
@@ -125,16 +124,19 @@ namespace MaeMMBusinessLogic
                     maxMuscle = muscleForce[i].Y;
                 }
 
-                if(expList.Count>=50)
+                if(expList.Count >= 50)
                 {
                     expList.RemoveAt(0);
                     expList.Add(new XYDTO(muscleForce[i].X, muscleForce[i].Y));
 
                     double sumXY = 0;
+                    double XY = 0; 
                     double sumX = 0;
+                    double X = 0;
                     double sumXpower2 = 0;
+                    double Xpower2 = 0; 
                     double sumY = 0;
-                    int count = 0;
+                    double Y = 0; 
 
                     foreach (var point in expList)
                     {
@@ -142,24 +144,32 @@ namespace MaeMMBusinessLogic
                     
                     }
 
+                    XY = sumXY / expList.Count; 
+
                     foreach (var point in expList)
                     {
                         sumX += point.X;
                     }
+
+                    X = sumX / expList.Count; 
 
                     foreach (var point in expList)
                     {
                         sumY += point.Y;
                     }
 
+                    Y = sumY / expList.Count; 
+
                     foreach (var point in expList)
                     {
                         sumXpower2 += point.X*point.X;
                     }
 
-                    double Slope = (sumXY-(sumX*sumY))/(sumXpower2-(sumX*sumX));
+                    Xpower2 = sumXpower2 / expList.Count;  
 
-                    if(Slope>expMuscle)
+                    double Slope = (XY-(X*Y))/(Xpower2-(X*X));
+
+                    if(Slope > expMuscle)
                     {
                         expMuscle = Slope;
                     }

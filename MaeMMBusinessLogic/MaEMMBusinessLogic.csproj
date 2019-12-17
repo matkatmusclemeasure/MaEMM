@@ -125,7 +125,7 @@
     <Compile Include="Classes\DataCalculator.cs" />
     <Compile Include="Classes\DataPresenter.cs" />
     <Compile Include="Classes\DataProcessor.cs" />
-    <Compile Include="DownSampling.cs" />
+    <Compile Include="Classes\DownSampling.cs" />
     <Compile Include="DTO\DataPCParameterDTO.cs" />
     <Compile Include="DTO\InformationDTO.cs" />
     <Compile Include="Interfaces\IArrangeData.cs" />
@@ -137,8 +137,8 @@
     <Compile Include="Classes\PowerControl.cs" />
     <Compile Include="DTO\MaxExpDTOP.cs" />
     <Compile Include="Interfaces\IZeroPointAdjustment.cs" />
-    <Compile Include="IProducer.cs" />
-    <Compile Include="producer.cs" />
+    <Compile Include="Interfaces\IProducer.cs" />
+    <Compile Include="Classes\producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Event\SendCoordinateEvent.cs" />
     <Compile Include="DTO\XYDTO.cs" />

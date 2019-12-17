@@ -16,6 +16,7 @@ namespace MaeMMBusinessLogic
         private bool measuring = false;
         private Thread measureThread;
         private int count = 0;
+        private int talplus = 1000;
 
         public producer(BlockingCollection<int> BC)
         {
@@ -38,10 +39,12 @@ namespace MaeMMBusinessLogic
 
             while (measuring == true)
             {
+
                 //BC_.Add(adConverter.readADC_Differential_0_1());
-                BC_.Add(1000);
+                BC_.Add(talplus);
                 Thread.Sleep(1);
                 count++;
+                talplus += 148; 
             }
 
             BC_.CompleteAdding();
