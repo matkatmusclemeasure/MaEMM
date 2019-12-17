@@ -42,6 +42,7 @@ namespace MaeMMBusinessLogic
                 BC_.Add(1000);
                 Thread.Sleep(1);
                 count++;
+               
             }
 
             BC_.CompleteAdding();
@@ -69,7 +70,10 @@ namespace MaeMMBusinessLogic
 
         public void zeroPointAdjust(BlockingCollection<int> BC)
         {
-            for(int i =0;i<300;i++)
+            BC_ = BC;
+
+
+            for(int i =0;i<=300;i++)
             {
                 //BC_.Add(adConverter.readADC_Differential_0_1());
                 BC_.Add(1000);
