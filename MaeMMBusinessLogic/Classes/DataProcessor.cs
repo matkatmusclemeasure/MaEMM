@@ -39,7 +39,7 @@ namespace MaeMMBusinessLogic
             //    testList.Add(1);
             //}
             
-            //procesVoltage(1000);
+            procesVoltage(1000);
             //procesVoltage(count);
             //count++;
         }
