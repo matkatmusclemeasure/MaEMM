@@ -36,7 +36,7 @@ namespace MaeMMBusinessLogic
         public void measure()
         {
             measuring = true;
-
+            
             while (measuring == true)
             {
 

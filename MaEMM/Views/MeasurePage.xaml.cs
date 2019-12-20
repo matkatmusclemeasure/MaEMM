@@ -41,7 +41,8 @@ namespace MaEMM.Views
         private double DSCoordinate;
         private BlockingCollection<int> BC_;
         //private XYDTO downsampledXY;
-        private double timeCount; 
+        private double timeCount;
+        private bool manualAdjust = false; 
 
         public ObservableCollection<DataPoint> Source { get; } = new ObservableCollection<DataPoint>();
         private InformationDTO informationDTO;
@@ -187,23 +188,24 @@ namespace MaEMM.Views
 
         }
 
-        private void resetMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            List<XYDTO> graphCoordinates = new List<XYDTO>();
-            graphCoordinates.Add(new XYDTO(1, 2));
-            graphCoordinates.Add(new XYDTO(2, 3));
-            graphCoordinates.Add(new XYDTO(3, 4));
-            graphCoordinates.Add(new XYDTO(4, 3));
-            graphCoordinates.Add(new XYDTO(5, 1));
+        //private void resetMeasurementB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        //{
+        //    List<XYDTO> graphCoordinates = new List<XYDTO>();
+        //    graphCoordinates.Add(new XYDTO(1, 2));
+        //    graphCoordinates.Add(new XYDTO(2, 3));
+        //    graphCoordinates.Add(new XYDTO(3, 4));
+        //    graphCoordinates.Add(new XYDTO(4, 3));
+        //    graphCoordinates.Add(new XYDTO(5, 1));
 
-            this.MuscleForceChart.DataContext = graphCoordinates;
+        //    this.MuscleForceChart.DataContext = graphCoordinates;
 
-            timeCount = 0; 
+        //    timeCount = 0; 
 
-        }
+        //}
 
         private async void zeroPointAdjustmentB_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+
             try
             {
                 DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
@@ -247,39 +249,70 @@ namespace MaEMM.Views
 
         private void sampleDown(object sender, SendCoordinateEvent e)
         {
-
-            if (coordinateDownSampling.Count < 17)
+            if (manualAdjust == true)
             {
-                coordinateDownSampling.Add(e.y);
-            }
-            else if (coordinateDownSampling.Count >= 17)
-            {
-                timeCount += 0.017;
-
-                for (int i = 0; i < 17; i++)
+                if (coordinateDownSampling.Count < 17)
                 {
-                    DSCoordinateSum += coordinateDownSampling[i];
+                    coordinateDownSampling.Add(e.y);
                 }
-
-                DSCoordinate = DSCoordinateSum / 17;
-
-                //downsampledXY.X = timeCount; 
-                //downsampledXY.Y = DSCoordinate;
-
-                Task updateTask = new Task(async () =>
+                else if (coordinateDownSampling.Count >= 17)
                 {
+                    timeCount += 0.017;
 
-                    AddData(new XYDTO(timeCount, DSCoordinate));
+                    for (int i = 0; i < 17; i++)
+                    {
+                        DSCoordinateSum += coordinateDownSampling[i];
+                    }
 
-                });
-                updateTask.Start();
+                    DSCoordinate = DSCoordinateSum / 17;
 
-                //downSampledCoordinate.Add(new XYDTO(timeCount, DSCoordinate));
+                    //downsampledXY.X = timeCount; 
+                    //downsampledXY.Y = DSCoordinate;
 
-                coordinateDownSampling.Clear();
-                DSCoordinateSum = 0;
+                    Task updateTask = new Task(async () =>
+                    {
+
+                        AddData(new XYDTO(timeCount, DSCoordinate));
+
+                    });
+                    updateTask.Start();
+
+                    //downSampledCoordinate.Add(new XYDTO(timeCount, DSCoordinate));
+
+                    coordinateDownSampling.Clear();
+                    DSCoordinateSum = 0;
+                }
             }
         }
- 
+
+        private async void manualAdjustmentB_Click(object sender, RoutedEventArgs e)
+        {
+            manualAdjust = true;
+
+            try
+            {
+                DataPCParameterDTO DTO = new DataPCParameterDTO(Convert.ToDouble(armlengthTB.Text) / 100, informationDTO.strengthLevel);
+                datapresenter_.setParameter(DTO);
+
+                downSampledCoordinate.Clear();
+
+                BC_ = new BlockingCollection<int>();
+
+                producer_.startMeasure(BC_);
+                datapresenter_.meassure(BC_);
+            }
+            catch (Exception exc)
+            {
+                var dialog = new MessageDialog("Enter real length");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void manualAdjustmentStopB_Click(object sender, RoutedEventArgs e)
+        {
+            producer_.stopMeasure(); 
+            timeCount = 0;
+            manualAdjust = false; 
+        }
     }
 }

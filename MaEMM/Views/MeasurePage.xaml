@@ -9,24 +9,24 @@
     mc:Ignorable="d" Background="#FFFBFAFA">
 
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <TextBlock HorizontalAlignment="Left" Margin="544,51,0,0" Text ="Zero point adjustment" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404"/>
-        <Button x:Name="zeroPointAdjustmentB" Content="Adjust" Margin="542,75,0,0" VerticalAlignment="Top" Width="178" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="zeroPointAdjustmentB_Click"/>
-        <Button x:Name="startMeasurementB" Content="Start measurement" Margin="542,181,0,0" VerticalAlignment="Top" Width="178" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="startMeasurementB_Click"/>
-        <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="542,220,0,0" VerticalAlignment="Top" Width="180" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="stopMeasurementB_Click"/>
-        <Button x:Name="saveMeasurementB" Content="Save" Margin="647,390,0,0" Width="73" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="saveMeasurementB_Click" VerticalAlignment="Top"/>
-        <Button x:Name="resetMeasurementB" Content="Reset measurement" Margin="542,259,0,0" VerticalAlignment="Top" Width="178" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="resetMeasurementB_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="294,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="223" Foreground="#FF040404"><Run Text="Step 2: "/><Run Text="Zero point adjustment"/></TextBlock>
+        <Button x:Name="zeroPointAdjustmentB" Content="Adjust" Margin="531,163,0,0" VerticalAlignment="Top" Width="178" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="zeroPointAdjustmentB_Click"/>
+        <Button x:Name="startMeasurementB" Content="Start measurement" Margin="419,242,0,0" VerticalAlignment="Top" Width="178" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="startMeasurementB_Click"/>
+        <Button x:Name="stopMeasurementB" Content="Stop measurement" Margin="419,288,0,0" VerticalAlignment="Top" Width="180" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="stopMeasurementB_Click"/>
+        <Button x:Name="saveMeasurementB" Content="Save" Margin="591,389,0,0" Width="119" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="saveMeasurementB_Click" VerticalAlignment="Top"/>
+        <!--<Button x:Name="resetMeasurementB" Content="Reset measurement" Margin="420,309,0,0" VerticalAlignment="Top" Width="178" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="resetMeasurementB_Click"/>-->
         <TextBlock HorizontalAlignment="Left" Margin="-10,10,0,0" Text="Measure" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Verdana" Foreground="#FF040404"/>
-        <TextBlock HorizontalAlignment="Left" Margin="544,122,0,0" Text ="Enter armlength" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="97" Foreground="#FF040404"/>
-        <TextBox x:Name="armlengthTB" HorizontalAlignment="Left" Margin="621,124,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
-        <TextBox x:Name="rateOfForceDevTB" HorizontalAlignment="Left" Margin="542,390,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
-        <TextBox x:Name="muscleForceTB" HorizontalAlignment="Left" Margin="544,329,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="93"/>
-        <TextBlock HorizontalAlignment="Left" Text="Muscle force (Nm)" Margin="544,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404"/>
-        <TextBlock HorizontalAlignment="Left" Text="ROFD (Nm/s)" Margin="542,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404"/>
+        <TextBlock HorizontalAlignment="Left" Margin="295,52,0,0" Text ="Enter armlength:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="168" Foreground="#FF040404"/>
+        <TextBox x:Name="armlengthTB" HorizontalAlignment="Left" Margin="451,45,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="rateOfForceDevTB" HorizontalAlignment="Left" Margin="461,389,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+        <TextBox x:Name="muscleForceTB" HorizontalAlignment="Left" Margin="295,389,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="93"/>
+        <TextBlock HorizontalAlignment="Left" Text="Muscle force (Nm)" Margin="295,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Text="ROFD (Nm/s)" Margin="461,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="201" Foreground="#FF040404" FontWeight="Bold"/>
         <!--<TextBlock HorizontalAlignment="Left" Text ="Nm" Margin="680,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="26" Foreground="#FF040404"/>-->
         <!--<TextBlock HorizontalAlignment="Left" Text ="Nm/s" Margin="675,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="38" Foreground="#FF040404"/>-->
         <Image x:Name="backB" HorizontalAlignment="Left" Height="29" Margin="667,10,0,0" VerticalAlignment="Top" Width="61" Source="/Assets/ToBackKnap.PNG" Tapped="backB_Tapped"/>
 
-        <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,47,0,9" HorizontalAlignment="Left" Width="539" Background="Red" Foreground="Aquamarine">
+        <tc:RadCartesianChart x:Name ="MuscleForceChart" Margin="-10,51,0,9" HorizontalAlignment="Left" Width="295" Background="LightSlateGray" Foreground="Aquamarine">
             <tc:RadCartesianChart.HorizontalAxis>
                 <tc:LinearAxis/>
             </tc:RadCartesianChart.HorizontalAxis>
@@ -43,6 +43,9 @@
                 </tc:ScatterLineSeries.YValueBinding>
             </tc:ScatterLineSeries>
         </tc:RadCartesianChart>
+        <TextBlock HorizontalAlignment="Left" Margin="295,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="249" Foreground="#FF040404" Text="Step 1: Manual adjustment"/>
+        <Button x:Name="manualAdjustmentB" Content="Adjust" Margin="530,112,0,0" VerticalAlignment="Top" Width="82" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="manualAdjustmentB_Click"/>
+        <Button x:Name="manualAdjustmentStopB" Content="Stop" Margin="627,112,0,0" VerticalAlignment="Top" Width="82" Background="{ThemeResource SystemColorInactiveCaptionColor}" FontFamily="Verdana" Click="manualAdjustmentStopB_Click"/>
 
     </Grid>
 </Page>
